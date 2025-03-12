@@ -63,7 +63,6 @@ export const Section2userBoardData = [
 ];
 export const Section2userData = [
   {
-    id: "1",
     image: "skill.png",
     background: "service_bg.jpg",
     span: "we're protomega,",
