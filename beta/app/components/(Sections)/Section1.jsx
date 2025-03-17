@@ -1,17 +1,33 @@
-import { Section1userData } from "@/app/database/SectionData";
-import React from "react";
+"use client";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Section1 = () => {
+  const [section1Data, setSection1Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/1`
+        );
+        setSection1Data(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   const { image, background, header, paragraph, button_label } =
-    Section1userData[0];
+    section1Data[0];
   return (
     <section
       className="w-full h-[1000px] flex items-center justify-center relative bg-no-repeat bg-cover max-[574px]:h-[525px]"
-      style={{ backgroundImage: `url(/${background})` }}
+      style={{ backgroundImage: `url(${background})` }}
     >
       <div className="relavite max-w-[1140px] w-full h-full relative justify-end flex ">
         <div className="absolute left-0 bottom-0 z-10 w-fit max-[576px]:invisible">
-          <img src={`/${image}`} width={520} height={824} alt="girl" />
+          <img src={`${image}`} width={520} height={824} alt="person" />
         </div>
         <div className="max-w-[600px] h-full max-[992px]:w-full max-[992px]:items-center flex flex-col gap-5 items-start justify-center text-white z-10">
           <h2 className="text-[90px] font-montserrat font-extrabold max-[574px]:text-[45px] max-[574px]:text-center">

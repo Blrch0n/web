@@ -3,14 +3,14 @@ import Section2 from "../models/section2.model.js";
 import Section3 from "../models/section3.model.js";
 import Section4 from "../models/section4.model.js";
 import Section5 from "../models/section5.model.js";
-import Section6 from "../models/sections6.model.js";
-import Section7 from "../models/sections7.model.js";
-import Section8 from "../models/sections8.model.js";
-import Section9 from "../models/sections9.model.js";
-import Section10 from "../models/sections10.model.js";
-import Section11 from "../models/sections11.model.js";
-import Section12 from "../models/sections12.model.js";
-import Section13 from "../models/sections13.model.js";
+import Section6 from "../models/section6.model.js";
+import Section7 from "../models/section7.model.js";
+import Section8 from "../models/section8.model.js";
+import Section9 from "../models/section9.model.js";
+import Section10 from "../models/section10.model.js";
+import Section11 from "../models/section11.model.js";
+import Section12 from "../models/section12.model.js";
+import Section13 from "../models/section13.model.js";
 
 export const getSection1 = async (req, res) => {
   try {

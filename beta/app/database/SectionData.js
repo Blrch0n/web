@@ -6,7 +6,6 @@ import { AiOutlineGlobal } from "react-icons/ai";
 import { IoMdTime } from "react-icons/io";
 
 export const Section1userBoardData = [
-  { name: "№", size: "8%" },
   { name: "image", size: "20%" },
   { name: "background", size: "17%" },
   { name: "header", size: "20%" },
@@ -24,10 +23,6 @@ export const Section1userData = [
   },
 ];
 export const Section2userBoardData = [
-  {
-    name: "№",
-    size: "8%",
-  },
   {
     name: "image",
     size: "full",
