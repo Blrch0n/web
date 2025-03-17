@@ -1,5 +1,16 @@
-import Section2 from "../models/section2.model.js";
 import Section1 from "../models/sections1.model.js";
+import Section2 from "../models/section2.model.js";
+import Section3 from "../models/section3.model.js";
+import Section4 from "../models/section4.model.js";
+import Section5 from "../models/section5.model.js";
+import Section6 from "../models/sections6.model.js";
+import Section7 from "../models/sections7.model.js";
+import Section8 from "../models/sections8.model.js";
+import Section9 from "../models/sections9.model.js";
+import Section10 from "../models/sections10.model.js";
+import Section11 from "../models/sections11.model.js";
+import Section12 from "../models/sections12.model.js";
+import Section13 from "../models/sections13.model.js";
 
 export const getSection1 = async (req, res) => {
   try {
@@ -24,7 +35,6 @@ export const postSection1 = async (req, res) => {
     console.log(error);
   }
 };
-
 export const getSection2 = async (req, res) => {
   try {
     const getsection2 = await Section2.find();
@@ -33,7 +43,6 @@ export const getSection2 = async (req, res) => {
     console.log(error);
   }
 };
-
 export const postSection2 = async (req, res) => {
   try {
     const {
@@ -57,6 +66,274 @@ export const postSection2 = async (req, res) => {
       jobs,
     });
     res.status(201).json(newSection2);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection3 = async (req, res) => {
+  try {
+    const getSection3 = await Section3.find();
+    res.status(200).json(getSection3);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection3 = async (req, res) => {
+  try {
+    const { header, background_image } = req.body;
+    const newSection3 = await Section3.create({ header, background_image });
+    res.status(201).json(newSection3);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection4 = async (req, res) => {
+  try {
+    const getSection4 = await Section4.find();
+    res.status(200).json(getSection4);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection4 = async (req, res) => {
+  try {
+    const { about, span, header, button_label, background_image } = req.body;
+    const newSection4 = await Section4.create({
+      about,
+      span,
+      header,
+      button_label,
+      background_image,
+    });
+    res.status(201).json(newSection4);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection5 = async (req, res) => {
+  try {
+    const getSection5 = await Section5.find();
+    res.status(200).json(getSection5);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection5 = async (req, res) => {
+  try {
+    const { label, paragraph, images } = req.body;
+    const newSection5 = await Section5.create({ label, paragraph, images });
+    res.status(201).json(newSection5);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection6 = async (req, res) => {
+  try {
+    const getSection6 = await Section6.find();
+    res.status(200).json(getSection6);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection6 = async (req, res) => {
+  try {
+    const { background_image, about, header, span, services } = req.body;
+    const newSection6 = await Section6.create({
+      background_image,
+      about,
+      header,
+      span,
+      services,
+    });
+    res.status(201).json(newSection6);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection7 = async (req, res) => {
+  try {
+    const getSection7 = await Section7.find();
+    res.status(200).json(getSection7);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection7 = async (req, res) => {
+  try {
+    const {
+      image,
+      background_image,
+      header,
+      span,
+      paragraph,
+      lists,
+      button_label,
+    } = req.body;
+    const newSection7 = await Section7.create({
+      image,
+      background_image,
+      header,
+      span,
+      paragraph,
+      lists,
+      button_label,
+    });
+    res.status(201).json(newSection7);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection8 = async (req, res) => {
+  try {
+    const getSection8 = await Section8.find();
+    res.status(200).json(getSection8);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection8 = async (req, res) => {
+  try {
+    const { background_image, teamMembers } = req.body;
+    const newSection8 = await Section8.create({
+      background_image,
+      teamMembers,
+    });
+    res.status(201).json(newSection8);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection9 = async (req, res) => {
+  try {
+    const getSection9 = await Section9.find();
+    res.status(200).json(getSection9);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection9 = async (req, res) => {
+  try {
+    const { labels } = req.body;
+    const newSection9 = await Section9.create({
+      labels,
+    });
+    res.status(201).json(newSection9);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection10 = async (req, res) => {
+  try {
+    const getSection10 = await Section10.find();
+    res.status(200).json(getSection10);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection10 = async (req, res) => {
+  try {
+    const { background_image, teamMembers } = req.body;
+    const newSection10 = await Section10.create({
+      background_image,
+      teamMembers,
+    });
+    res.status(201).json(newSection10);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection11 = async (req, res) => {
+  try {
+    const getSection11 = await Section11.find();
+    res.status(200).json(getSection11);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection11 = async (req, res) => {
+  try {
+    const { about, header, span, blogPosts } = req.body;
+    const newSection11 = await Section11.create({
+      about,
+      header,
+      span,
+      blogPosts,
+    });
+    res.status(201).json(newSection11);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection12 = async (req, res) => {
+  try {
+    const getSection12 = await Section12.find();
+    res.status(200).json(getSection12);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection12 = async (req, res) => {
+  try {
+    const {
+      background,
+      header1,
+      paragraph1,
+      header2,
+      paragraph2,
+      header3,
+      button1_label,
+      button2_label,
+      button3_label,
+      button_label,
+    } = req.body;
+    const newSection12 = await Section12.create({
+      background,
+      header1,
+      paragraph1,
+      header2,
+      paragraph2,
+      header3,
+      button1_label,
+      button2_label,
+      button3_label,
+      button_label,
+    });
+    res.status(201).json(newSection12);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSection13 = async (req, res) => {
+  try {
+    const getSection13 = await Section13.find();
+    res.status(200).json(getSection13);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postSection13 = async (req, res) => {
+  try {
+    const {
+      background_image,
+      paragraph,
+      placeholder,
+      button_label,
+      header1,
+      header2,
+      instagramImages,
+      Section13_data,
+    } = req.body;
+    const newSection13 = await Section13.create({
+      background_image,
+      paragraph,
+      placeholder,
+      button_label,
+      header1,
+      header2,
+      instagramImages,
+      Section13_data,
+    });
+    res.status(201).json(newSection13);
   } catch (error) {
     console.log(error);
   }

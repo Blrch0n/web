@@ -8,3 +8,4 @@ const sectionSchema3 = new mongoose.Schema({
 });
 const Section3 = mongoose.model("Section3", sectionSchema3);
 export default Section3;
+  
