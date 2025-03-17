@@ -1,17 +1,30 @@
 "use client";
-import React from "react";
+import { useEffect, useState } from "react";
 import { FaPlay } from "react-icons/fa";
-import { useRevealOnce } from "../(Main_structure)/useRevealOnce";
-import { Section3userData } from "@/app/database/SectionData";
+import axios from "axios";
 
 const Section3 = () => {
-  const { header, background_image } = Section3userData[0];
-  const [ref, revealed] = useRevealOnce(0.3);
+  const [section3Data, setSection3Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/3`
+        );
+        setSection3Data(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  });
+  if (section3Data.length === 0) {
+    return <div>Loading...</div>;
+  }
+  const { header, background_image } = section3Data[0];
   return (
     <section
-      ref={ref}
-      className={`w-full min-h-[403px] h-fit py-10 max-[1200px]:h-[283px] max-[1200px]:px-20 flex bg-slate-500 justify-center items-center bg-cover object-cover transition-opacity duration-700 ${
-        revealed ? "opacity-100" : "opacity-0"
+      className={`w-full min-h-[403px] h-fit py-10 max-[1200px]:h-[283px] max-[1200px]:px-20 flex bg-slate-500 justify-center items-center bg-cover object-cover transition-opacity duration-700
       }`}
       style={{ backgroundImage: `url(/${background_image})` }}
     >

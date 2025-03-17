@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaFacebookF, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -7,9 +7,25 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
 import { Section8userData } from "@/app/database/SectionData";
+import axios from "axios";
 
 export default function TeamGrid() {
-  const { background_image, teamMembers } = Section8userData[0];
+  const [section8Data, setSection8Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/8`
+        );
+        setSection8Data(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  if (section8Data.length === 0) return <div>Loading...</div>;
+  const { background_image, teamMembers } = section8Data[0];
   return (
     <section
       className="w-full h-fit pt-[100px] pb-[50px] z-10 relative bg-no-repeat bg-cover"

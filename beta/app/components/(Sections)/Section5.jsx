@@ -1,9 +1,25 @@
-import { Section5userData } from "@/app/database/SectionData";
-import React from "react";
+"use client";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 
 const Section5 = () => {
-  const { label, paragraph, images } = Section5userData[0];
+  const [section5Data, setSection5Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/5`
+        );
+        setSection5Data(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  if (section5Data.length === 0) return <div>Loading...</div>;
+  const { label, paragraph, images } = section5Data[0];
   return (
     <section className="w-full h-fit grid grid-cols-4 max-[766px]:grid-cols-2 max-[766px]:grid-rows-4 max-[576px]:grid-cols-1 max-[576px]:grid-rows-8 grid-rows-2">
       {images.map((image, index) => (

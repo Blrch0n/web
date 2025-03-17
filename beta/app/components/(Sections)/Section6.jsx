@@ -1,8 +1,24 @@
-import { Section6userData } from "@/app/database/SectionData";
+"use client";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Section6 = ({ children }) => {
-  const { background_image, about, header, span, services } =
-    Section6userData[0];
+  const [section6Data, setSection6Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/6`
+        );
+        setSection6Data(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  if (section6Data.length === 0) return <div>Loading...</div>;
+  const { background_image, about, header, span, services } = section6Data[0];
   return (
     <section
       className="w-full flex justify-center py-16"

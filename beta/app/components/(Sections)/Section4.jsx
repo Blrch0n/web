@@ -1,16 +1,32 @@
-import { Section4userData } from "@/app/database/SectionData";
-import React from "react";
+"use client";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 
 const Section4 = () => {
+  const [section4Data, setSection4Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/4`
+        );
+        setSection4Data(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  if (section4Data.length === 0) return <div>Loading...</div>;
   const { about, header, span, button_label, background_image } =
-    Section4userData[0];
+    section4Data[0];
   return (
-    <section className="w-full h-fit flex items-center bg-white justify-center pt-[100px]">
-      <div
-        className="max-w-[1140px] w-full min-h-[193px] h-fit max-[1200px]:px-20 relative max-[766px]:flex-col max-[766px]:py-10 flex flex-row items-center justify-between bg-no-repeat bg-cover bg-center"
-        style={{ backgroundImage: `url(/${background_image})` }}
-      >
+    <section
+      className="w-full h-fit flex items-center bg-white justify-center pt-[100px]"
+      style={{ backgroundImage: `url(${background_image})` }}
+    >
+      <div className="max-w-[1140px] w-full min-h-[193px] h-fit max-[1200px]:px-20 relative max-[766px]:flex-col max-[766px]:py-10 flex flex-row items-center justify-between bg-no-repeat bg-cover bg-center">
         <div className="w-fit h-full flex flex-col">
           <h2 className="text-[18px] font-bold font-montserrat text-[rgb(247,131,170)]">
             {about}

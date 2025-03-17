@@ -1,7 +1,24 @@
-import { Section7userData } from "@/app/database/SectionData";
+"use client";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { FaPlayCircle } from "react-icons/fa";
 
 const Section7 = () => {
+  const [section7Data, setSection7Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/7`
+        );
+        setSection7Data(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  if (section7Data.length === 0) return <div>Loading...</div>;
   const {
     image,
     background_image,
@@ -10,7 +27,7 @@ const Section7 = () => {
     paragraph,
     lists,
     button_label,
-  } = Section7userData[0];
+  } = section7Data[0];
   return (
     <div
       className="w-full h-fit p-[100px] flex justify-center items-center bg-no-repeat bg-cover max-md:p-[50px] max-sm:p-[20px]"

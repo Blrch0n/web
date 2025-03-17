@@ -1,9 +1,24 @@
 "use client";
-import { Section13userData } from "@/app/database/SectionData";
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { GrSend } from "react-icons/gr";
 
 const Section13 = () => {
+  const [section13Data, setSection13Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/13`
+        );
+        setSection13Data(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  if (section13Data.length === 0) return <div>Loading...</div>;
   const [clickedName, setClickedName] = useState(2);
   const {
     background_image,
@@ -14,7 +29,7 @@ const Section13 = () => {
     header2,
     instagramImages,
     Section13_data,
-  } = Section13userData[0];
+  } = section13Data[0];
 
   return (
     <section

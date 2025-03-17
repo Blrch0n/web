@@ -1,8 +1,5 @@
 "use client";
-import {
-  Section1userBoardData,
-  Section1userData,
-} from "@/app/database/SectionData";
+import { Section1userBoardData } from "@/app/database/SectionData";
 import axios from "axios";
 import { useEffect, useState } from "react";
 

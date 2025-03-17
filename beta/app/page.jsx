@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default function Home() {
   return (
-    <section className="w-full h-[5000px]">
+    <section className="w-full h-fit">
       <Header />
       <Main />
       <Footer />

@@ -1,10 +1,26 @@
-import React from "react";
+"use client";
+import { useEffect, useState } from "react";
 import { GrSend } from "react-icons/gr";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import { Section12userData } from "@/app/database/SectionData";
+import axios from "axios";
 const Section12 = () => {
+  const [section12Data, setSection12Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/12`
+        );
+        setSection12Data(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  if (section12Data.length === 0) return <div>Loading...</div>;
   const {
     background_image,
     header1,
@@ -16,7 +32,7 @@ const Section12 = () => {
     button2_label,
     button3_label,
     button_label,
-  } = Section12userData[0];
+  } = section12Data[0];
   return (
     <section className="w-full min-h-[609.6px] h-fit py-20 flex overflow-hidden justify-center relative items-center">
       <span className="absolute top-0 right-0 w-[40%] max-[992px]:w-full h-full z-[10]">

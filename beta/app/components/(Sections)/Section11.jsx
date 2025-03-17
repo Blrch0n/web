@@ -1,8 +1,25 @@
-import { Section11userData } from "@/app/database/SectionData";
+"use client";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 
 const Section11 = () => {
-  const { about, header, span, blogPosts } = Section11userData[0];
+  const [section11Data, setSection11Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/11`
+        );
+        setSection11Data(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  if (section11Data.length === 0) return <div>Loading...</div>;
+  const { about, header, span, blogPosts } = section11Data[0];
   return (
     <section className="w-full min-h-[681px] h-fit bg-white p-[100px] max-[766px]:p-0 max-[766px]:py-20 relative flex justify-center items-center">
       <span className="w-[336px] h-[347px] absolute top-[100px] -left-[150px]">

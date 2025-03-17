@@ -10,14 +10,18 @@ const Section1 = () => {
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_SERVER_URL}/1`
         );
-        setSection1Data(response.data);
-        console.log(response.data);
+        const data = response.data;
+        setSection1Data(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
     fetchData();
   }, []);
+
+  if (section1Data.length === 0) {
+    return <div>Loading...</div>;
+  }
   const { image, background, header, paragraph, button_label } =
     section1Data[0];
   return (

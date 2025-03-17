@@ -1,14 +1,29 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
-import { Section10userData } from "@/app/database/SectionData";
+import axios from "axios";
 
 export default function Section10({ children }) {
-  const { background_image, teamMembers } = Section10userData[0];
+  const [section10Data, setSection10Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/10`
+        );
+        setSection10Data(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  if (section10Data.length === 0) return <div>Loading...</div>;
+  const { background_image, teamMembers } = section10Data[0];
   return (
     <section
       className="w-full h-fit pt-[100px] pb-[50px] bg-white bg-cover bg-no-repeat"
