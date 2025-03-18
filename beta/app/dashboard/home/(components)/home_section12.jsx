@@ -1,9 +1,22 @@
-import React from "react";
-import {
-  Section12userBoardData,
-  Section12userData,
-} from "@/app/database/SectionData";
+"use client";
+import React, { useEffect, useState } from "react";
+import { Section12userBoardData } from "@/app/database/SectionData";
+import axios from "axios";
 const Home_Section_12 = () => {
+  const [section12Data, setSection12Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/12`
+        );
+        setSection12Data(await response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <section className="w-full h-full p-10 flex flex-col">
       <div className="w-full h-full flex flex-col gap-10">
@@ -24,22 +37,28 @@ const Home_Section_12 = () => {
               ))}
             </div>
             <div className="w-full h-fit flex flex-col">
-              {Section12userData.map((data, index) => (
+              {section12Data.map((data, index) => (
                 <div
                   className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
                   key={index}
                 >
                   <div className="h-fit w-full ">
+                    <p>{data.background}</p>
+                  </div>
+                  <div className="h-fit w-full ">
                     <p>{data.header1}</p>
+                  </div>
+                  <div className="h-fit w-full ">
+                    <p>{data.paragraph1}</p>
                   </div>
                   <div className="h-fit w-full ">
                     <p>{data.header2}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.header3}</p>
+                    <p>{data.paragraph2}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.paragraph}</p>
+                    <p>{data.header3}</p>
                   </div>
                   <div className="h-fit w-full ">
                     <p>{data.button1_label}</p>

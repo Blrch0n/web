@@ -1,9 +1,23 @@
-import React from "react";
-import {
-  Section3userBoardData,
-  Section3userData,
-} from "@/app/database/SectionData";
+"use client";
+import React, { useEffect, useState } from "react";
+import { Section3userBoardData } from "@/app/database/SectionData";
+import axios from "axios";
 const Home_Section_3 = () => {
+  const [section3Data, setSection3Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/3`
+        );
+        setSection3Data(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <section className="w-full h-full p-10 flex flex-col">
       <div className="w-full h-full flex flex-col gap-10">
@@ -24,16 +38,19 @@ const Home_Section_3 = () => {
               ))}
             </div>
             <div className="w-full h-fit flex flex-col">
-              {Section3userData.map((data, index) => (
+              {section3Data.map((data, index) => (
                 <div
                   className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
                   key={index}
                 >
-                  <div className="h-fit w-[8%] ">
-                    <p>{data.id}</p>
+                  <div className="h-fit w-full overflow-hidden">
+                    <p>{data._id}</p>
+                  </div>
+                  <div className="h-fit w-full overflow-hidden">
+                    <p>{data.header}</p>
                   </div>
                   <div className="h-fit w-full">
-                    <p>{data.header}</p>
+                    <p>{data.background_image}</p>
                   </div>
                 </div>
               ))}

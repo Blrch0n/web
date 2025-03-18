@@ -1,23 +1,23 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Section6userBoardData } from "@/app/database/SectionData";
+import { useEffect, useState } from "react";
+import { Section13userBoardData } from "@/app/database/SectionData";
 import axios from "axios";
-const Home_Section_6 = () => {
-  const [section6Data, setSection6Data] = useState([]);
+const Home_Section_13 = () => {
+  const [section13Data, setSection13Data] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/6`
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/13`
         );
-        setSection6Data(response.data);
+        console.log(response.data);
+        setSection13Data(await response.data);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching data:", error);
       }
     };
     fetchData();
   }, []);
-
   return (
     <section className="w-full h-full p-10 flex flex-col">
       <div className="w-full h-full flex flex-col gap-10">
@@ -27,7 +27,7 @@ const Home_Section_6 = () => {
           </button>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
             <div className="w-full flex flex-row items-center h-fit p-5 bg-blue-200">
-              {Section6userBoardData.map((data, index) => (
+              {Section13userBoardData.map((data, index) => (
                 <div
                   key={index}
                   className="h-fit w-full"
@@ -38,7 +38,7 @@ const Home_Section_6 = () => {
               ))}
             </div>
             <div className="w-full h-fit flex flex-col">
-              {section6Data.map((data, index) => (
+              {section13Data.map((data, index) => (
                 <div
                   className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
                   key={index}
@@ -47,16 +47,22 @@ const Home_Section_6 = () => {
                     <p>{data.background_image}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.about}</p>
+                    <p>{data.paragraph}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.header}</p>
+                    <p>{data.button_label}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.span}</p>
+                    <p>{data.header1}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.services[0]}</p>
+                    <p>{data.header2}</p>
+                  </div>
+                  <div className="h-fit w-full ">
+                    <p>{data.instagramImages[0]}</p>
+                  </div>
+                  <div className="h-fit w-full ">
+                    <p>{data.Section13_data[0]}</p>
                   </div>
                 </div>
               ))}
@@ -68,4 +74,4 @@ const Home_Section_6 = () => {
   );
 };
 
-export default Home_Section_6;
+export default Home_Section_13;

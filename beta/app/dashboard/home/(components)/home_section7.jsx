@@ -1,9 +1,22 @@
-import React from "react";
-import {
-  Section7userBoardData,
-  Section7userData,
-} from "@/app/database/SectionData";
+"use client";
+import React, { useEffect, useState } from "react";
+import { Section7userBoardData } from "@/app/database/SectionData";
+import axios from "axios";
 const Home_Section_7 = () => {
+  const [section7Data, setSection7Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/7`
+        );
+        setSection7Data(await response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <section className="w-full h-full p-10 flex flex-col">
       <div className="w-full h-full flex flex-col gap-10">
@@ -24,7 +37,7 @@ const Home_Section_7 = () => {
               ))}
             </div>
             <div className="w-full h-fit flex flex-col">
-              {Section7userData.map((data, index) => (
+              {section7Data.map((data, index) => (
                 <div
                   className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
                   key={index}
@@ -32,11 +45,17 @@ const Home_Section_7 = () => {
                   <div className="h-fit w-full">
                     <p>{data.image}</p>
                   </div>
+                  <div className="h-fit w-full">
+                    <p>{data.background_image}</p>
+                  </div>
                   <div className="h-fit w-full ">
                     <p>{data.header}</p>
                   </div>
+                  <div className="h-fit w-full">
+                    <p>{data.span}</p>
+                  </div>
                   <div className="h-fit w-full ">
-                    <p>{data.paragrpah}</p>
+                    <p>{data.paragraph}</p>
                   </div>
                   <div className="h-fit w-full ">
                     <p>{data.lists[0]}</p>

@@ -1,13 +1,10 @@
 "use client";
-import {
-  Section2userBoardData,
-  Section2userData,
-} from "@/app/database/SectionData";
+import { Section2userBoardData } from "@/app/database/SectionData";
 import axios from "axios";
 import { useEffect, useState } from "react";
 const Home_Section_2 = () => {
   const [isClicked, setIsClicked] = useState(false);
-  const [section1Data, setSection1Data] = useState([]);
+  const [section2Data, setSection2Data] = useState([]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +19,7 @@ const Home_Section_2 = () => {
       );
 
       // Update local state with new data
-      setSection1Data([...section1Data, response.data]);
+      setSection2Data([...section2Data, response.data]);
 
       // Close modal and reset form
       setIsClicked(false);
@@ -36,9 +33,10 @@ const Home_Section_2 = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/1`
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/2`
         );
-        setSection1Data(response.data);
+        setSection2Data(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -71,12 +69,12 @@ const Home_Section_2 = () => {
               ))}
             </div>
             <div className="w-full h-fit flex flex-col">
-              {Section2userData.map((data, index) => (
+              {section2Data.map((data, index) => (
                 <div
                   className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
                   key={index}
                 >
-                  <div className="h-fit w-full ">
+                  <div className="h-fit w-full overflow-hidden">
                     <p>{data.image}</p>
                   </div>
                   <div className="h-fit w-full ">
@@ -98,7 +96,7 @@ const Home_Section_2 = () => {
                     <p>{data.button_label}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.jobs[0].label}</p>
+                    <p>{data.jobs[0].title}</p>
                   </div>
                 </div>
               ))}

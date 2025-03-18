@@ -1,9 +1,25 @@
-import React from "react";
+"use client";
+import { useEffect, useState } from "react";
 import {
   Section11userBoardData,
   Section11userData,
 } from "@/app/database/SectionData";
+import axios from "axios";
 const Home_Section_11 = () => {
+  const [section11Data, setSection11Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/11`
+        );
+        setSection11Data(await response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <section className="w-full h-full p-10 flex flex-col">
       <div className="w-full h-full flex flex-col gap-10">
@@ -24,7 +40,7 @@ const Home_Section_11 = () => {
               ))}
             </div>
             <div className="w-full h-fit flex flex-col">
-              {Section11userData.map((data, index) => (
+              {section11Data.map((data, index) => (
                 <div
                   className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
                   key={index}
@@ -36,10 +52,10 @@ const Home_Section_11 = () => {
                     <p>{data.header}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.boxs[0].header}</p>
+                    <p>{data.span}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.bg_images}</p>
+                    <p>{data.blogPosts[0].author}</p>
                   </div>
                 </div>
               ))}

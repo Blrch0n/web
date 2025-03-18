@@ -1,9 +1,22 @@
-import React from "react";
-import {
-  Section10userBoardData,
-  Section10userData,
-} from "@/app/database/SectionData";
+"use client";
+import React, { useEffect, useState } from "react";
+import { Section10userBoardData } from "@/app/database/SectionData";
+import axios from "axios";
 const Home_Section_10 = () => {
+  const [section10Data, setSection10Data] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/10`
+        );
+        setSection10Data(await response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <section className="w-full h-full p-10 flex flex-col">
       <div className="w-full h-full flex flex-col gap-10">
@@ -24,22 +37,16 @@ const Home_Section_10 = () => {
               ))}
             </div>
             <div className="w-full h-fit flex flex-col">
-              {Section10userData.map((data, index) => (
+              {section10Data.map((data, index) => (
                 <div
                   className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
                   key={index}
                 >
                   <div className="h-fit w-full ">
-                    <p>{data.paragraph}</p>
+                    <p>{data.background_image}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.header}</p>
-                  </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.job}</p>
-                  </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.image}</p>
+                    <p>{data.teamMembers[0].name}</p>
                   </div>
                 </div>
               ))}

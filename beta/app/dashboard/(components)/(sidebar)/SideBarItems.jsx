@@ -29,6 +29,7 @@ const sideBarItems_data = [
       { title: "Section10", url: "home/section10" },
       { title: "Section11", url: "home/section11" },
       { title: "Section12", url: "home/section12" },
+      { title: "Section13", url: "home/section13" },
     ],
   },
   {
