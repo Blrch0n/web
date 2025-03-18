@@ -32,7 +32,14 @@ const Section2 = () => {
     about,
     paragraph,
     button_label,
-    jobs,
+    title1,
+    color1,
+    title2,
+    color2,
+    title3,
+    color3,
+    title4,
+    color4,
   } = section2Data[0];
   return (
     <section
@@ -66,18 +73,34 @@ const Section2 = () => {
               </span>
             </a>
             <div className="w-full h-fit grid grid-cols-2 grid-rows-2 gap-5 items-center justify-between">
-              {jobs.map((data, index) => (
-                <div
-                  className="text-black w-full h-fit text-[16px] font-montserrat gap-2 relative"
-                  key={index}
-                >
-                  {data.title}
-                  <span
-                    className="w-[30px] h-[4px] rounded-full inline-block absolute left-0 -bottom-1"
-                    style={{ backgroundColor: data.color }}
-                  ></span>
-                </div>
-              ))}
+              <div className="text-black w-full h-fit text-[16px] font-montserrat gap-2 relative">
+                {title1}
+                <span
+                  className="w-[30px] h-[4px] rounded-full inline-block absolute left-0 -bottom-1"
+                  style={{ backgroundColor: color1 }}
+                ></span>
+              </div>
+              <div className="text-black w-full h-fit text-[16px] font-montserrat gap-2 relative">
+                {title2}
+                <span
+                  className="w-[30px] h-[4px] rounded-full inline-block absolute left-0 -bottom-1"
+                  style={{ backgroundColor: color2 }}
+                ></span>
+              </div>
+              <div className="text-black w-full h-fit text-[16px] font-montserrat gap-2 relative">
+                {title3}
+                <span
+                  className="w-[30px] h-[4px] rounded-full inline-block absolute left-0 -bottom-1"
+                  style={{ backgroundColor: color3 }}
+                ></span>
+              </div>
+              <div className="text-black w-full h-fit text-[16px] font-montserrat gap-2 relative">
+                {title4}
+                <span
+                  className="w-[30px] h-[4px] rounded-full inline-block absolute left-0 -bottom-1"
+                  style={{ backgroundColor: color4 }}
+                ></span>
+              </div>
             </div>
           </div>
         </div>

@@ -9,7 +9,10 @@ const sectionSchema7 = new mongoose.Schema({
   header: { type: String, required: [true, "header required"] },
   span: { type: String, required: [true, "span required"] },
   paragraph: { type: String, required: [true, "paragraph required"] },
-  lists: { type: Array, required: [true, "lists required"] },
+  list1: { type: String, required: [true, "list1 required"] },
+  list2: { type: String, required: [true, "list2 required"] },
+  list3: { type: String, required: [true, "list3 required"] },
+  list4: { type: String, required: [true, "list4 required"] },
   button_label: { type: String, required: [true, "button_label required"] },
 });
 const Section7 = mongoose.model("Section7", sectionSchema7);

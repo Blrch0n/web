@@ -5,6 +5,7 @@ import { GrSend } from "react-icons/gr";
 
 const Section13 = () => {
   const [section13Data, setSection13Data] = useState([]);
+  const [clickedName, setClickedName] = useState(2);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,7 +20,7 @@ const Section13 = () => {
     fetchData();
   }, []);
   if (section13Data.length === 0) return <div>Loading...</div>;
-  const [clickedName, setClickedName] = useState(2);
+
   const {
     background_image,
     paragraph,

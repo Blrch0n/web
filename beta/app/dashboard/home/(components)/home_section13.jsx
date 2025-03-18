@@ -10,8 +10,8 @@ const Home_Section_13 = () => {
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_SERVER_URL}/13`
         );
+        setSection13Data(response.data);
         console.log(response.data);
-        setSection13Data(await response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -38,7 +38,7 @@ const Home_Section_13 = () => {
               ))}
             </div>
             <div className="w-full h-fit flex flex-col">
-              {section13Data.map((data, index) => (
+              {/* {section13Data.map((data, index) => (
                 <div
                   className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
                   key={index}
@@ -59,13 +59,13 @@ const Home_Section_13 = () => {
                     <p>{data.header2}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.instagramImages[0]}</p>
+                    <p>{data.instagramImages}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.Section13_data[0]}</p>
+                    <p>{data.Section13_data}</p>
                   </div>
                 </div>
-              ))}
+              ))} */}
             </div>
           </div>
         </div>

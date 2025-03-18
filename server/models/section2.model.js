@@ -14,7 +14,14 @@ const sectionSchema2 = new mongoose.Schema({
   about: { type: String, required: [true, "about required"] },
   paragraph: { type: String, required: [true, "paragraph required"] },
   button_label: { type: String, required: [true, "button_label required"] },
-  jobs: { type: Array, required: [true, "jobs required"] },
+  title1: { type: String, required: [true, "title1 required"] },
+  color1: { type: String, required: [true, "color1 required"] },
+  title2: { type: String, required: [true, "title2 required"] },
+  color2: { type: String, required: [true, "color2 required"] },
+  title3: { type: String, required: [true, "title3 required"] },
+  color3: { type: String, required: [true, "color3 required"] },
+  title4: { type: String, required: [true, "title4 required"] },
+  color4: { type: String, required: [true, "color4 required"] },
 });
 const Section2 = mongoose.model("Section2", sectionSchema2);
 export default Section2;

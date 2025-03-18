@@ -53,7 +53,14 @@ export const postSection2 = async (req, res) => {
       about,
       paragraph,
       button_label,
-      jobs,
+      title1,
+      color1,
+      title2,
+      color2,
+      title3,
+      color3,
+      title4,
+      color4,
     } = req.body;
     const newSection2 = await Section2.create({
       image,
@@ -63,7 +70,14 @@ export const postSection2 = async (req, res) => {
       about,
       paragraph,
       button_label,
-      jobs,
+      title1,
+      color1,
+      title2,
+      color2,
+      title3,
+      color3,
+      title4,
+      color4,
     });
     res.status(201).json(newSection2);
   } catch (error) {
@@ -120,8 +134,18 @@ export const getSection5 = async (req, res) => {
 };
 export const postSection5 = async (req, res) => {
   try {
-    const { label, paragraph, images } = req.body;
-    const newSection5 = await Section5.create({ label, paragraph, images });
+    const { label, paragraph, image1, image2, image3, image4, image5, image6 } =
+      req.body;
+    const newSection5 = await Section5.create({
+      label,
+      paragraph,
+      image1,
+      image2,
+      image3,
+      image4,
+      image5,
+      image6,
+    });
     res.status(201).json(newSection5);
   } catch (error) {
     console.log(error);
@@ -137,13 +161,29 @@ export const getSection6 = async (req, res) => {
 };
 export const postSection6 = async (req, res) => {
   try {
-    const { background_image, about, header, span, services } = req.body;
+    const {
+      background_image,
+      about,
+      header,
+      span,
+      title1,
+      title2,
+      title3,
+      title4,
+      title5,
+      title6,
+    } = req.body;
     const newSection6 = await Section6.create({
       background_image,
       about,
       header,
       span,
-      services,
+      title1,
+      title2,
+      title3,
+      title4,
+      title5,
+      title6,
     });
     res.status(201).json(newSection6);
   } catch (error) {
@@ -166,7 +206,10 @@ export const postSection7 = async (req, res) => {
       header,
       span,
       paragraph,
-      lists,
+      list1,
+      list2,
+      list3,
+      list4,
       button_label,
     } = req.body;
     const newSection7 = await Section7.create({
@@ -175,7 +218,10 @@ export const postSection7 = async (req, res) => {
       header,
       span,
       paragraph,
-      lists,
+      list1,
+      list2,
+      list3,
+      list4,
       button_label,
     });
     res.status(201).json(newSection7);
@@ -213,9 +259,25 @@ export const getSection9 = async (req, res) => {
 };
 export const postSection9 = async (req, res) => {
   try {
-    const { labels } = req.body;
+    const {
+      number1,
+      label1,
+      number2,
+      label2,
+      number3,
+      label3,
+      number4,
+      label4,
+    } = req.body;
     const newSection9 = await Section9.create({
-      labels,
+      number1,
+      label1,
+      number2,
+      label2,
+      number3,
+      label3,
+      number4,
+      label4,
     });
     res.status(201).json(newSection9);
   } catch (error) {

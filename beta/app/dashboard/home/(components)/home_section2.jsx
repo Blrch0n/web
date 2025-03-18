@@ -96,7 +96,7 @@ const Home_Section_2 = () => {
                     <p>{data.button_label}</p>
                   </div>
                   <div className="h-fit w-full ">
-                    <p>{data.jobs[0].title}</p>
+                    <p>{data.title1}</p>
                   </div>
                 </div>
               ))}
@@ -186,11 +186,81 @@ const Home_Section_2 = () => {
                 />
               </div>
               <div>
-                <h1>jobs</h1>
+                <h1>Title 1</h1>
                 <input
                   type="text"
-                  name="jobs" // Add name attribute
-                  placeholder="jobs"
+                  name="title1" // Add name attribute
+                  placeholder="title1"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div>
+                <h1>Color 1</h1>
+                <input
+                  type="text"
+                  name="color1" // Add name attribute
+                  placeholder="color1"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div>
+                <h1>Title 2</h1>
+                <input
+                  type="text"
+                  name="title2" // Add name attribute
+                  placeholder="title2"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div>
+                <h1>color2</h1>
+                <input
+                  type="text"
+                  name="color2" // Add name attribute
+                  placeholder="color2"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div>
+                <h1>title3</h1>
+                <input
+                  type="text"
+                  name="title3" // Add name attribute
+                  placeholder="title3"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div>
+                <h1>color3</h1>
+                <input
+                  type="text"
+                  name="color3" // Add name attribute
+                  placeholder="color3"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div>
+                <h1>title4</h1>
+                <input
+                  type="text"
+                  name="title4" // Add name attribute
+                  placeholder="title4"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div>
+                <h1>color4</h1>
+                <input
+                  type="text"
+                  name="color4" // Add name attribute
+                  placeholder="color4"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />

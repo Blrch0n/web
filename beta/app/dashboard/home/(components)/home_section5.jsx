@@ -4,6 +4,29 @@ import { Section5userBoardData } from "@/app/database/SectionData";
 import axios from "axios";
 const Home_Section_5 = () => {
   const [section5Data, setSection5Data] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/5`,
+        data
+      );
+
+      // Update local state with new data
+      setSection5Data([...section5Data, response.data]);
+
+      // Close modal and reset form
+      setIsClicked(false);
+      e.target.reset();
+    } catch (error) {
+      console.error("Error creating data:", error);
+    }
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,7 +44,10 @@ const Home_Section_5 = () => {
     <section className="w-full h-full p-10 flex flex-col">
       <div className="w-full h-full flex flex-col gap-10">
         <div className="w-full h-full flex items-start flex-col gap-5 ">
-          <button className="bg-white p-5 rounded-[6px] text-black">
+          <button
+            className="bg-white p-5 rounded-[6px] text-black"
+            onClick={() => setIsClicked(true)}
+          >
             Create User
           </button>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
@@ -45,7 +71,12 @@ const Home_Section_5 = () => {
                   <div className="h-fit w-full flex flex-row items-center">
                     <p className="w-full h-fit">{data.label}</p>
                     <p className="w-full h-fit">{data.paragraph}</p>
-                    <p className="w-full h-fit">{data.images[0].alt}</p>
+                    <p className="w-full h-fit">{data.image1}</p>
+                    <p className="w-full h-fit">{data.image2}</p>
+                    <p className="w-full h-fit">{data.image3}</p>
+                    <p className="w-full h-fit">{data.image4}</p>
+                    <p className="w-full h-fit">{data.image5}</p>
+                    <p className="w-full h-fit">{data.image6}</p>
                   </div>
                 </div>
               ))}
@@ -53,6 +84,107 @@ const Home_Section_5 = () => {
           </div>
         </div>
       </div>
+      {isClicked && (
+        <div className="absolute top-0 left-0 bg-black/50 w-full h-screen flex items-center justify-center z-50">
+          {/* Add onSubmit to form and proper input names */}
+          <form
+            onSubmit={handleFormSubmit}
+            className="bg-white w-1/2 h-fit rounded-2xl p-6 gap-2 flex flex-col"
+          >
+            <h1 className="text-3xl font-montserrat font-bold text-black">
+              Create Section 5
+            </h1>
+            <div className="w-full h-fit flex flex-col gap-5 text-black">
+              <div className="w-full h-fit flex flex-col gap-2">
+                <h1>label</h1>
+                <input
+                  type="text"
+                  name="label" // Add name attribute
+                  placeholder="label"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div className="w-full h-fit flex flex-col gap-2">
+                <h1>paragraph</h1>
+                <input
+                  type="text"
+                  name="paragraph" // Add name attribute
+                  placeholder="paragraph"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div className="w-full h-fit flex flex-col gap-2">
+                <h1>image1</h1>
+                <input
+                  type="text"
+                  name="image1" // Add name attribute
+                  placeholder="image1"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div className="w-full h-fit flex flex-col gap-2">
+                <h1>image2</h1>
+                <input
+                  type="text"
+                  name="image2" // Add name attribute
+                  placeholder="image2"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div className="w-full h-fit flex flex-col gap-2">
+                <h1>image3</h1>
+                <input
+                  type="text"
+                  name="image3" // Add name attribute
+                  placeholder="image3"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div className="w-full h-fit flex flex-col gap-2">
+                <h1>image4</h1>
+                <input
+                  type="text"
+                  name="image4" // Add name attribute
+                  placeholder="image4"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div className="w-full h-fit flex flex-col gap-2">
+                <h1>image5</h1>
+                <input
+                  type="text"
+                  name="image5" // Add name attribute
+                  placeholder="image5"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div className="w-full h-fit flex flex-col gap-2">
+                <h1>image6</h1>
+                <input
+                  type="text"
+                  name="image6" // Add name attribute
+                  placeholder="image6"
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <button
+                type="submit" // Change to submit type
+                className="bg-black text-white py-4 rounded-xl"
+              >
+                Create
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
     </section>
   );
 };
