@@ -19,7 +19,7 @@ const Section4 = () => {
     fetchData();
   }, []);
   if (section4Data.length === 0) return <div>Loading...</div>;
-  const { about, header, span, button_label, background_image } =
+  const { about, span, header, button_label, background_image } =
     section4Data[0];
   return (
     <section
