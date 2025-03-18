@@ -4,6 +4,48 @@ import { Section10userBoardData } from "@/app/database/SectionData";
 import axios from "axios";
 const Home_Section_10 = () => {
   const [section10Data, setSection10Data] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
+  const [formData, setFormData] = useState({
+    background_image: "",
+    teamMembers: [{ name: "", role: "", image: "" }],
+  });
+  const addTeamMember = () => {
+    setFormData((prev) => ({
+      ...prev,
+      teamMembers: [...prev.teamMembers, { name: "", role: "", image: "" }],
+    }));
+  };
+
+  const handleInputChange = (e, index) => {
+    const { name, value } = e.target;
+    if (name === "background_image") {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    } else {
+      const updatedMembers = [...formData.teamMembers];
+      updatedMembers[index][name] = value;
+      setFormData((prev) => ({ ...prev, teamMembers: updatedMembers }));
+    }
+  };
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/10`,
+        formData,
+        { headers: { "Content-Type": "application/json" } }
+      );
+
+      setSection10Data([...section10Data, response.data]);
+      setIsClicked(false);
+      setFormData({
+        background_image: "",
+        teamMembers: [{ name: "", role: "", image: "", paragraph: "" }],
+      });
+    } catch (error) {
+      console.error("Error creating data:", error);
+    }
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,7 +63,10 @@ const Home_Section_10 = () => {
     <section className="w-full h-full p-10 flex flex-col">
       <div className="w-full h-full flex flex-col gap-10">
         <div className="w-full h-full flex items-start flex-col gap-5 ">
-          <button className="bg-white p-3 rounded-[6px] text-black">
+          <button
+            className="bg-white p-3 rounded-[6px] text-black"
+            onClick={() => setIsClicked(true)}
+          >
             Create User
           </button>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
@@ -54,6 +99,80 @@ const Home_Section_10 = () => {
           </div>
         </div>
       </div>
+      {isClicked && (
+        <div className="absolute top-0 left-0 bg-black/50 w-full h-screen flex items-center justify-center z-50">
+          {/* Add onSubmit to form and proper input names */}
+          <form
+            onSubmit={handleFormSubmit}
+            className="bg-white w-1/2 h-fit rounded-2xl p-6 gap-2 flex flex-col"
+          >
+            <h1 className="text-3xl font-montserrat font-bold text-black">
+              Create Section 10
+            </h1>
+            <div className="w-full h-fit flex flex-col gap-5 text-black">
+              <div className="w-full h-fit flex flex-col gap-2">
+                <h1>background_image</h1>
+                <input
+                  type="text"
+                  name="background_image" // Add name attribute
+                  placeholder="background_image"
+                  onChange={(e) => handleInputChange(e)}
+                  className="w-full p-2 rounded-[6px] border border-black"
+                  required
+                />
+              </div>
+              <div className="w-full h-fit flex flex-col gap-2">
+                <h1>Team Members</h1>
+                {formData.teamMembers.map((member, index) => (
+                  <div key={index} className="border p-4 mb-4 rounded-lg">
+                    <h2 className="mb-2 font-semibold">Member #{index + 1}</h2>
+                    <input
+                      type="text"
+                      name="name"
+                      value={member.name}
+                      onChange={(e) => handleInputChange(e, index)}
+                      placeholder="Name"
+                      className="w-full p-2 mb-2 rounded-[6px] border"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="role"
+                      value={member.role}
+                      onChange={(e) => handleInputChange(e, index)}
+                      placeholder="Role"
+                      className="w-full p-2 mb-2 rounded-[6px] border"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="image"
+                      value={member.image}
+                      onChange={(e) => handleInputChange(e, index)}
+                      placeholder="Image URL"
+                      className="w-full p-2 mb-2 rounded-[6px] border"
+                      required
+                    />
+                  </div>
+                ))}
+                <button
+                  type="button"
+                  onClick={addTeamMember}
+                  className="bg-gray-200 p-2 rounded-[6px] hover:bg-gray-300"
+                >
+                  Add Another Member
+                </button>
+              </div>
+              <button
+                type="submit" // Change to submit type
+                className="bg-black text-white py-4 rounded-xl"
+              >
+                Create
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
     </section>
   );
 };
