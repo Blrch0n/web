@@ -58,14 +58,14 @@ const Home_Section_1 = () => {
   }, []);
 
   return (
-    <section className="w-full h-full p-10 flex flex-col relative">
-      <div className="w-full h-full flex flex-col gap-10">
+    <section className="w-full h-full p-10 flex flex-col relative text-black">
+      <div className="w-full h-full flex flex-col gap-10 ">
         {" "}
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           {" "}
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black"
+              className="bg-white p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -75,7 +75,7 @@ const Home_Section_1 = () => {
               Create Section1{" "}
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black"
+              className="bg-white p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection1();
               }}
@@ -84,9 +84,9 @@ const Home_Section_1 = () => {
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
+          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full border border-black">
             {" "}
-            <div className="w-full flex flex-row items-center h-fit p-5 bg-blue-200">
+            <div className="w-full flex flex-row items-center h-fit p-5">
               {" "}
               {Section1userBoardData.map((data, index) => (
                 <div
@@ -99,11 +99,12 @@ const Home_Section_1 = () => {
                 </div>
               ))}{" "}
             </div>{" "}
+            <hr className="bg-black w-full h-[1px]"></hr>
             <div className="w-full h-fit flex flex-col">
               {" "}
               {section1Data.map((data, index) => (
                 <div
-                  className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
+                  className="w-full flex flex-row items-center h-fit p-5 "
                   key={index}
                 >
                   {" "}

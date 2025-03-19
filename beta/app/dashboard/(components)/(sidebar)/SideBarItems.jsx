@@ -122,7 +122,7 @@ const SideBarItems = () => {
     console.log("Route changed to:", pathname);
   }, [pathname]);
   return (
-    <div className="w-full h-fit flex flex-col">
+    <div className="w-full h-fit flex flex-col text-black">
       {sideBarItems_data.map((data, index) => (
         <div
           className="w-full h-fit flex flex-col"
@@ -132,10 +132,10 @@ const SideBarItems = () => {
           }}
         >
           <div
-            className="w-full h-fit flex flex-row gap-4 p-5 items-center bg-[#333] hover:text-black rounded-lg cursor-pointer"
+            className="w-full h-fit flex flex-row gap-4 p-5 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
             style={{
               background:
-                pathname === `/dashboard/${data.url}` ? "#000" : "#333",
+                pathname === `/dashboard/${data.url}` ? "#123412" : "#fff",
             }}
           >
             {data.icon}
@@ -145,10 +145,12 @@ const SideBarItems = () => {
             {data.extra_sections.map((value, index) => (
               <Link href={`/dashboard/${value.url}`} key={index} className="">
                 <div
-                  className="w-full h-fit flex-row gap-4 p-5 items-center hidden bg-[#333] hover:text-black rounded-lg cursor-pointer"
+                  className="w-full h-fit flex-row gap-4 p-5 mt-1 items-center hidden bg-[#fff] hover:text-black rounded-lg cursor-pointer"
                   style={{
                     background:
-                      pathname === `/dashboard/${value.url}` ? "#000" : "#333",
+                      pathname === `/dashboard/${value.url}`
+                        ? "#123412"
+                        : "#fff",
                     display: data.order === isClicked ? "flex" : "none",
                   }}
                 >
