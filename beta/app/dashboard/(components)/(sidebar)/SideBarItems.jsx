@@ -135,7 +135,7 @@ const SideBarItems = () => {
             className="w-full h-fit flex flex-row gap-4 p-5 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
             style={{
               background:
-                pathname === `/dashboard/${data.url}` ? "#123412" : "#fff",
+                pathname === `/dashboard/${data.url}` ? "#ff9a00" : "#fff",
             }}
           >
             {data.icon}
@@ -149,7 +149,7 @@ const SideBarItems = () => {
                   style={{
                     background:
                       pathname === `/dashboard/${value.url}`
-                        ? "#123412"
+                        ? "#ff9a00"
                         : "#fff",
                     display: data.order === isClicked ? "flex" : "none",
                   }}

@@ -91,11 +91,10 @@ const Home_Section_1 = () => {
               {Section1userBoardData.map((data, index) => (
                 <div
                   key={index}
-                  className="h-fit w-full"
-                  style={{ width: data.size }}
+                  className="h-fit w-full text-center"
+                  style={{ width: `${100 / data.length}%` }}
                 >
-                  {" "}
-                  <p>{data.name}</p>{" "}
+                  <p>{data.name}</p>
                 </div>
               ))}{" "}
             </div>{" "}
@@ -104,27 +103,42 @@ const Home_Section_1 = () => {
               {" "}
               {section1Data.map((data, index) => (
                 <div
-                  className="w-full flex flex-row items-center h-fit p-5 "
+                  className="w-full flex flex-row items-center gap-2 h-fit p-5 "
                   key={index}
                 >
                   {" "}
-                  <div className="h-fit w-[20%] ">
+                  <div
+                    className="h-fit overflow-hidden  text-center"
+                    style={{ width: `${100 / section1Data.length}%` }}
+                  >
                     {" "}
                     <p>{data.image}</p>{" "}
                   </div>{" "}
-                  <div className="h-fit w-[17%] overflow-hidden">
+                  <div
+                    className="h-fit overflow-hidden text-center"
+                    style={{ width: `${100 / section1Data.length}%` }}
+                  >
                     {" "}
                     <p>{data.background}</p>{" "}
                   </div>{" "}
-                  <div className="h-fit w-[20%] ">
+                  <div
+                    className="h-fit overflow-hidden  text-center"
+                    style={{ width: `${100 / section1Data.length}%` }}
+                  >
                     {" "}
                     <p>{data.header}</p>{" "}
                   </div>{" "}
-                  <div className="h-fit w-[20%] ">
+                  <div
+                    className="h-fit overflow-hidden  text-center"
+                    style={{ width: `${100 / section1Data.length}%` }}
+                  >
                     {" "}
                     <p>{data.paragraph}</p>{" "}
                   </div>{" "}
-                  <div className="h-fit w-[20%] ">
+                  <div
+                    className="h-fit overflow-hidden  text-center"
+                    style={{ width: `${100 / section1Data.length}%` }}
+                  >
                     {" "}
                     <p>{data.button_label}</p>{" "}
                   </div>
