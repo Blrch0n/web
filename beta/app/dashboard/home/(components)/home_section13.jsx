@@ -15,7 +15,17 @@ const Home_Section_13 = () => {
     instagramImages: [""],
     Section13_data: [{ name: "", number: 0 }],
   });
-
+  const deleteAllSection13 = async () => {
+    try {
+      const response = await axios.delete(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/13`
+      );
+      console.log(response.data);
+      setSection13Data({});
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const addImages = () => {
     setFormData((prev) => ({
       ...prev,
@@ -95,12 +105,27 @@ const Home_Section_13 = () => {
     <section className="w-full h-full p-10 flex flex-col">
       <div className="w-full h-full flex flex-col gap-10">
         <div className="w-full h-full flex items-start flex-col gap-5 ">
-          <button
-            className="bg-white p-3 rounded-[6px] text-black"
-            onClick={() => setIsClicked(true)}
-          >
-            Create User
-          </button>
+          <div className="flex justify-between items-center w-full h-fit">
+            <button
+              className="bg-white p-3 rounded-[6px] text-black"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsClicked(!isClicked);
+              }}
+            >
+              {" "}
+              Create Section13{" "}
+            </button>
+            <button
+              className="bg-white p-3 rounded-[6px] text-black"
+              onClick={() => {
+                deleteAllSection13();
+              }}
+            >
+              {" "}
+              Delete AllData
+            </button>
+          </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
             <div className="w-full flex flex-row items-center h-fit p-5 bg-blue-200">
               {Section13userBoardData.map((data, index) => (
@@ -154,7 +179,7 @@ const Home_Section_13 = () => {
             className="bg-white w-1/2 h-fit rounded-2xl p-6 gap-2 flex flex-col"
           >
             <h1 className="text-3xl font-montserrat font-bold text-black">
-              Create Section 10
+              Create Section 13
             </h1>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">

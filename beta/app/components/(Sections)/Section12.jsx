@@ -22,7 +22,7 @@ const Section12 = () => {
   }, []);
   if (section12Data.length === 0) return <div>Loading...</div>;
   const {
-    background_image,
+    background,
     header1,
     paragraph1,
     header2,
@@ -34,13 +34,16 @@ const Section12 = () => {
     button_label,
   } = section12Data[0];
   return (
-    <section className="w-full min-h-[609.6px] h-fit py-20 flex overflow-hidden justify-center relative items-center">
+    <section
+      className="w-full min-h-[609.6px] h-fit py-20 flex overflow-hidden justify-center relative items-center"
+      style={{ backgroundImage: `url(${background})` }}
+    >
       <span className="absolute top-0 right-0 w-[40%] max-[992px]:w-full h-full z-[10]">
-        <img
-          src={background_image}
+        {/* <img
+          src={background}
           className="w-full h-full object-cover"
           alt="background"
-        ></img>
+        ></img> */}
       </span>
       <div className="max-w-[1140px] w-full max-[1200px]:px-20 z-[11] h-fit flex flex-row max-[992px]:flex-col gap-20">
         <div className="flex flex-col gap-5 w-full max-w-[517px] h-fit">

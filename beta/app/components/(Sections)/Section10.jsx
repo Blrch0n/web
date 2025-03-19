@@ -27,7 +27,7 @@ export default function Section10({ children }) {
   return (
     <section
       className="w-full h-fit pt-[100px] pb-[50px] bg-white bg-cover bg-no-repeat"
-      style={{ backgroundImage: `url(/${background_image})` }}
+      style={{ backgroundImage: `url(${background_image})` }}
     >
       <div className="max-w-[1140px] w-full mx-auto px-4 sm:px-6 lg:px-8">
         <Swiper

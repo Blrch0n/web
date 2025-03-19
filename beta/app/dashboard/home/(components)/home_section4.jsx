@@ -5,7 +5,17 @@ import axios from "axios";
 const Home_Section_4 = () => {
   const [section4Data, setSection4Data] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
-
+  const deleteAllSection4 = async () => {
+    try {
+      const response = await axios.delete(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/4`
+      );
+      console.log(response.data);
+      setSection4Data([]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -50,9 +60,27 @@ const Home_Section_4 = () => {
             setIsClicked(true);
           }}
         >
-          <button className="bg-white p-3 rounded-[6px] text-black">
-            Create Section4
-          </button>
+          <div className="flex justify-between items-center w-full h-fit">
+            <button
+              className="bg-white p-3 rounded-[6px] text-black"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsClicked(!isClicked);
+              }}
+            >
+              {" "}
+              Create Section4{" "}
+            </button>
+            <button
+              className="bg-white p-3 rounded-[6px] text-black"
+              onClick={() => {
+                deleteAllSection4();
+              }}
+            >
+              {" "}
+              Delete AllData
+            </button>
+          </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
             <div className="w-full flex flex-row items-center h-fit p-5 bg-blue-200">
               {Section4userBoardData.map((data, index) => (

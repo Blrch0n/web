@@ -7,6 +7,18 @@ const Home_Section_1 = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [section1Data, setSection1Data] = useState([]);
 
+  const deleteAllSection1 = async () => {
+    try {
+      const response = await axios.delete(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/1`
+      );
+      console.log(response.data);
+      setSection1Data([]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -51,16 +63,27 @@ const Home_Section_1 = () => {
         {" "}
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           {" "}
-          <button
-            className="bg-white p-3 rounded-[6px] text-black"
-            onClick={(e) => {
-              e.preventDefault();
-              setIsClicked(!isClicked);
-            }}
-          >
-            {" "}
-            Create Section1{" "}
-          </button>{" "}
+          <div className="flex justify-between items-center w-full h-fit">
+            <button
+              className="bg-white p-3 rounded-[6px] text-black"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsClicked(!isClicked);
+              }}
+            >
+              {" "}
+              Create Section1{" "}
+            </button>
+            <button
+              className="bg-white p-3 rounded-[6px] text-black"
+              onClick={() => {
+                deleteAllSection1();
+              }}
+            >
+              {" "}
+              Delete AllData
+            </button>
+          </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
             {" "}
             <div className="w-full flex flex-row items-center h-fit p-5 bg-blue-200">

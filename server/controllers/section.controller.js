@@ -35,6 +35,14 @@ export const postSection1 = async (req, res) => {
     console.log(error);
   }
 };
+export const deleteAllSection1 = async (req, res) => {
+  try {
+    await Section1.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const getSection2 = async (req, res) => {
   try {
     const getsection2 = await Section2.find();
@@ -84,6 +92,14 @@ export const postSection2 = async (req, res) => {
     console.log(error);
   }
 };
+export const deleteAllSection2 = async (req, res) => {
+  try {
+    await Section2.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const getSection3 = async (req, res) => {
   try {
     const getSection3 = await Section3.find();
@@ -97,6 +113,14 @@ export const postSection3 = async (req, res) => {
     const { header, background_image } = req.body;
     const newSection3 = await Section3.create({ header, background_image });
     res.status(201).json(newSection3);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteAllSection3 = async (req, res) => {
+  try {
+    await Section3.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
   } catch (error) {
     console.log(error);
   }
@@ -124,6 +148,14 @@ export const postSection4 = async (req, res) => {
     console.log(error);
   }
 };
+export const deleteAllSection4 = async (req, res) => {
+  try {
+    await Section4.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const getSection5 = async (req, res) => {
   try {
     const getSection5 = await Section5.find();
@@ -147,6 +179,14 @@ export const postSection5 = async (req, res) => {
       image6,
     });
     res.status(201).json(newSection5);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteAllSection5 = async (req, res) => {
+  try {
+    await Section5.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
   } catch (error) {
     console.log(error);
   }
@@ -190,6 +230,14 @@ export const postSection6 = async (req, res) => {
     console.log(error);
   }
 };
+export const deleteAllSection6 = async (req, res) => {
+  try {
+    await Section6.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const getSection7 = async (req, res) => {
   try {
     const getSection7 = await Section7.find();
@@ -229,6 +277,14 @@ export const postSection7 = async (req, res) => {
     console.log(error);
   }
 };
+export const deleteAllSection7 = async (req, res) => {
+  try {
+    await Section7.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const getSection8 = async (req, res) => {
   try {
     const getSection8 = await Section8.find();
@@ -245,6 +301,14 @@ export const postSection8 = async (req, res) => {
       teamMembers,
     });
     res.status(201).json(newSection8);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteAllSection8 = async (req, res) => {
+  try {
+    await Section8.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
   } catch (error) {
     console.log(error);
   }
@@ -284,6 +348,14 @@ export const postSection9 = async (req, res) => {
     console.log(error);
   }
 };
+export const deleteAllSection9 = async (req, res) => {
+  try {
+    await Section9.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const getSection10 = async (req, res) => {
   try {
     const getSection10 = await Section10.find();
@@ -300,6 +372,14 @@ export const postSection10 = async (req, res) => {
       teamMembers,
     });
     res.status(201).json(newSection10);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteAllSection10 = async (req, res) => {
+  try {
+    await Section10.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
   } catch (error) {
     console.log(error);
   }
@@ -322,6 +402,14 @@ export const postSection11 = async (req, res) => {
       blogPosts,
     });
     res.status(201).json(newSection11);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteAllSection11 = async (req, res) => {
+  try {
+    await Section11.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
   } catch (error) {
     console.log(error);
   }
@@ -365,6 +453,14 @@ export const postSection12 = async (req, res) => {
     console.log(error);
   }
 };
+export const deleteAllSection12 = async (req, res) => {
+  try {
+    await Section12.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const getSection13 = async (req, res) => {
   try {
     const getSection13 = await Section13.find();
@@ -396,6 +492,14 @@ export const postSection13 = async (req, res) => {
       Section13_data,
     });
     res.status(201).json(newSection13);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteAllSection13 = async (req, res) => {
+  try {
+    await Section13.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
   } catch (error) {
     console.log(error);
   }

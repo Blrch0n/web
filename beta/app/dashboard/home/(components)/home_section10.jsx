@@ -15,7 +15,17 @@ const Home_Section_10 = () => {
       teamMembers: [...prev.teamMembers, { name: "", role: "", image: "" }],
     }));
   };
-
+  const deleteAllSection10 = async () => {
+    try {
+      const response = await axios.delete(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/10`
+      );
+      console.log(response.data);
+      setSection10Data([]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
     if (name === "background_image") {
@@ -63,12 +73,27 @@ const Home_Section_10 = () => {
     <section className="w-full h-full p-10 flex flex-col">
       <div className="w-full h-full flex flex-col gap-10">
         <div className="w-full h-full flex items-start flex-col gap-5 ">
-          <button
-            className="bg-white p-3 rounded-[6px] text-black"
-            onClick={() => setIsClicked(true)}
-          >
-            Create User
-          </button>
+          <div className="flex justify-between items-center w-full h-fit">
+            <button
+              className="bg-white p-3 rounded-[6px] text-black"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsClicked(!isClicked);
+              }}
+            >
+              {" "}
+              Create Section10{" "}
+            </button>
+            <button
+              className="bg-white p-3 rounded-[6px] text-black"
+              onClick={() => {
+                deleteAllSection10();
+              }}
+            >
+              {" "}
+              Delete AllData
+            </button>
+          </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
             <div className="w-full flex flex-row items-center h-fit p-5 bg-blue-200">
               {Section10userBoardData.map((data, index) => (
