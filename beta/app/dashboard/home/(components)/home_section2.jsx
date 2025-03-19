@@ -109,12 +109,10 @@ const Home_Section_2 = () => {
           {/* Add onSubmit to form and proper input names */}
           <form
             onSubmit={handleFormSubmit}
-            className="bg-white w-1/2 h-fit rounded-2xl p-6 gap-2 flex flex-col"
+            className="bg-white w-[75%] h-fit rounded-2xl p-6 gap-2 "
           >
-            <h1 className="text-3xl font-montserrat font-bold text-black">
-              Create Section 1
-            </h1>
-            <div className="w-full h-fit flex flex-col gap-5 text-black">
+            <h1>Create Section 2 </h1>
+            <div className="w-full h-fit grid grid-cols-2 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
                 <h1>Image</h1>
                 <input

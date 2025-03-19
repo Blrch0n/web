@@ -32,7 +32,7 @@ const Section4 = () => {
             {about}
           </h2>
           <h3 className="text-[32px] font-extrabold font-montserrat text-black z-10">
-            {span}
+            {span}{" "}
             <span className="text-[rgb(167,98,233)] text-[32px]">{header}</span>
           </h3>
         </div>

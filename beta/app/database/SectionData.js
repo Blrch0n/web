@@ -1,10 +1,3 @@
-import { FaCodeBranch } from "react-icons/fa";
-import { HiPaintBrush } from "react-icons/hi2";
-import { IoIosPhonePortrait } from "react-icons/io";
-import { IoHelpBuoy } from "react-icons/io5";
-import { AiOutlineGlobal } from "react-icons/ai";
-import { IoMdTime } from "react-icons/io";
-
 export const Section1userBoardData = [
   { name: "image", size: "20%" },
   { name: "background", size: "17%" },
@@ -195,70 +188,70 @@ export const Section6userBoardData = [
     size: "full",
   },
 ];
-export const Section6userData = [
-  {
-    background_image: "service_bg.jpg",
-    about: "Our Services",
-    header: "We love to find simple",
-    span: "Solutions to complex challenges.",
-    services: [
-      {
-        icon: (
-          <FaCodeBranch
-            className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
-            size="32px"
-          />
-        ),
-        title: "Development",
-      },
-      {
-        icon: (
-          <HiPaintBrush
-            className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
-            size="32px"
-          />
-        ),
-        title: "Design",
-      },
-      {
-        icon: (
-          <IoIosPhonePortrait
-            className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
-            size="32px"
-          />
-        ),
-        title: "Mobile Apps",
-      },
-      {
-        icon: (
-          <IoHelpBuoy
-            className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
-            size="32px"
-          />
-        ),
-        title: "Support",
-      },
-      {
-        icon: (
-          <AiOutlineGlobal
-            className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
-            size="32px"
-          />
-        ),
-        title: "SEO & Marketing",
-      },
-      {
-        icon: (
-          <IoMdTime
-            className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
-            size="32px"
-          />
-        ),
-        title: "Time Management",
-      },
-    ],
-  },
-];
+// export const Section6userData = [
+//   {
+//     background_image: "service_bg.jpg",
+//     about: "Our Services",
+//     header: "We love to find simple",
+//     span: "Solutions to complex challenges.",
+//     services: [
+//       {
+//         icon: (
+//           <FaCodeBranch
+//             className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
+//             size="32px"
+//           />
+//         ),
+//         title: "Development",
+//       },
+//       {
+//         icon: (
+//           <HiPaintBrush
+//             className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
+//             size="32px"
+//           />
+//         ),
+//         title: "Design",
+//       },
+//       {
+//         icon: (
+//           <IoIosPhonePortrait
+//             className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
+//             size="32px"
+//           />
+//         ),
+//         title: "Mobile Apps",
+//       },
+//       {
+//         icon: (
+//           <IoHelpBuoy
+//             className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
+//             size="32px"
+//           />
+//         ),
+//         title: "Support",
+//       },
+//       {
+//         icon: (
+//           <AiOutlineGlobal
+//             className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
+//             size="32px"
+//           />
+//         ),
+//         title: "SEO & Marketing",
+//       },
+//       {
+//         icon: (
+//           <IoMdTime
+//             className="text-[#b47beb] transition-colors duration-300 group-hover:text-white"
+//             size="32px"
+//           />
+//         ),
+//         title: "Time Management",
+//       },
+//     ],
+//   },
+// ];
 export const Section7userBoardData = [
   {
     name: "image",

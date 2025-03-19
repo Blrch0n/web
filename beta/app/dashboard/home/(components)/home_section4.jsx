@@ -137,7 +137,7 @@ const Home_Section_4 = () => {
                 />
               </div>
               <div>
-                <h1>background_image</h1>
+                <h1>button label</h1>
                 <input
                   type="text"
                   name="button_label" // Add name attribute

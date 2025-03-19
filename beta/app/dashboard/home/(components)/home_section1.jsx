@@ -88,7 +88,7 @@ const Home_Section_1 = () => {
                     {" "}
                     <p>{data.image}</p>{" "}
                   </div>{" "}
-                  <div className="h-fit w-[17%] ">
+                  <div className="h-fit w-[17%] overflow-hidden">
                     {" "}
                     <p>{data.background}</p>{" "}
                   </div>{" "}

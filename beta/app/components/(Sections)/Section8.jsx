@@ -6,7 +6,6 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.css";
-import { Section8userData } from "@/app/database/SectionData";
 import axios from "axios";
 
 export default function TeamGrid() {
@@ -29,7 +28,7 @@ export default function TeamGrid() {
   return (
     <section
       className="w-full h-fit pt-[100px] pb-[50px] z-10 relative bg-no-repeat bg-cover"
-      style={{ backgroundImage: `url(/${background_image})` }}
+      style={{ backgroundImage: `url(${background_image})` }}
     >
       <div className="max-w-[1140px] w-full px-10 h-fit mx-auto bg-transparent">
         <Swiper
@@ -60,7 +59,7 @@ export default function TeamGrid() {
           className="mySwiper"
         >
           {teamMembers.map((member, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className="rounded-lg">
               <div className=" rounded-lg bg-transparent hover:shadow-lg duration-1000 border-[1px] border-[#f3f3f3] overflow-hidden text-start p-5 w-full relative h-fit">
                 <div className="absolute top-0 right-0 w-[150px] h-[200px] sm:w-[180px] sm:h-[220px]">
                   <img

@@ -57,8 +57,7 @@ const Section2 = () => {
               {about}
             </h4>
             <h3 className="text-black font-montserrat text-[32px] font-extrabold">
-              <span className="text-[#ff9a00]">{span}</span>
-              {header}
+              <span className="text-[#ff9a00]">{span}</span> {header}
             </h3>
             <p className="text-[#999999] font-mulish text-[16px]">
               {paragraph}

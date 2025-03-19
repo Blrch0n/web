@@ -68,7 +68,7 @@ const Home_Section_5 = () => {
                   className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
                   key={index}
                 >
-                  <div className="h-fit w-full flex flex-row items-center">
+                  <div className="h-fit w-full flex flex-row items-center overflow-hidden">
                     <p className="w-full h-fit">{data.label}</p>
                     <p className="w-full h-fit">{data.paragraph}</p>
                     <p className="w-full h-fit">{data.image1}</p>
