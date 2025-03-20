@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Section11userBoardData } from "@/app/database/SectionData";
+import { IoExitOutline } from "react-icons/io5";
 import axios from "axios";
 const Home_Section_11 = () => {
   const [section11Data, setSection11Data] = useState([]);
@@ -84,7 +85,7 @@ const Home_Section_11 = () => {
     fetchData();
   }, []);
   return (
-    <section className="w-full h-full p-10 flex flex-col">
+    <section className="w-full h-full p-10 flex flex-col text-black">
       <div className="w-full h-full flex flex-col gap-10">
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
@@ -92,11 +93,10 @@ const Home_Section_11 = () => {
               className="bg-white p-3 rounded-[6px] text-black"
               onClick={(e) => {
                 e.preventDefault();
-                setIsClicked(!isClicked);
+                setIsCliked(true);
               }}
             >
-              {" "}
-              Create Section11{" "}
+              Create Section11
             </button>
             <button
               className="bg-white p-3 rounded-[6px] text-black"
@@ -104,42 +104,62 @@ const Home_Section_11 = () => {
                 deleteAllSection11();
               }}
             >
-              {" "}
               Delete AllData
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="w-full flex flex-row items-center h-fit p-5 bg-blue-200">
-              {Section11userBoardData.map((data, index) => (
-                <div
-                  key={index}
-                  className="h-fit w-full"
-                  style={{ width: data.size }}
-                >
-                  <p>{data.name}</p>
-                </div>
-              ))}
-            </div>
-            <div className="w-full h-fit flex flex-col">
-              {section11Data.map((data, index) => (
-                <div
-                  className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
-                  key={index}
-                >
-                  <div className="h-fit w-full ">
-                    <p>{data.about}</p>
+            <div className="grid grid-cols-2 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+              {Section11userBoardData.map((item, index) => {
+                const data = section11Data[0];
+                const blogPosts = data?.blogPosts || [];
+                return (
+                  <div
+                    key={index}
+                    className="w-full min-h-full h-fit flex border flex-col border-black rounded-xl items-center justify-start"
+                  >
+                    <div className="w-full h-fit flex justify-center py-4 font-bold">
+                      <h1>{item.name}</h1>
+                    </div>
+                    <hr className="w-full h-[1px] bg-black" />
+                    {item.name === "blogPosts" && data ? (
+                      <div className="grid grid-cols-2 gap-5 w-full h-full items-center justify-center p-5">
+                        {blogPosts.map((member, index) => (
+                          <div
+                            key={index}
+                            className="w-full h-full border rounded-xl border-black"
+                          >
+                            <div className="w-full h-fit flex justify-center py-4 font-bold">
+                              <h1>{`#${index + 1} team`}</h1>
+                            </div>
+                            <hr />
+                            <div className="w-full h-full flex flex-col items-center gap-5">
+                              <div className="w-full h-fit text-center">
+                                {member.date}
+                              </div>
+                              <div className="w-full h-fit text-center">
+                                {member.author}
+                              </div>
+                              <div className="w-full h-fit text-center">
+                                {member.title}
+                              </div>
+                              <div className="w-full h-fit text-center">
+                                {member.image}
+                              </div>
+                              <div className="w-full h-fit text-center">
+                                {member.description}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="w-full h-full flex justify-center items-center">
+                        {data?.background_image}
+                      </div>
+                    )}
                   </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.header}</p>
-                  </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.span}</p>
-                  </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.blogPosts[0].author}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -151,9 +171,16 @@ const Home_Section_11 = () => {
             onSubmit={handleFormSubmit}
             className="bg-white w-1/2 h-fit rounded-2xl p-6 gap-2 flex flex-col"
           >
-            <h1 className="text-3xl font-montserrat font-bold text-black">
-              Create Section 10
-            </h1>
+            <div className="w-full h-fit flex flex-row items-center justify-between">
+              <h1 className="text-3xl font-montserrat font-bold text-black">
+                Create Section 11
+              </h1>
+              <IoExitOutline
+                size={30}
+                cursor={"pointer"}
+                onClick={() => setIsCliked(false)}
+              />
+            </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
                 <h1>about</h1>
