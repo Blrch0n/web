@@ -45,7 +45,35 @@ export const Section2userBoardData = [
     size: "full",
   },
   {
-    name: "jobs",
+    name: "title1",
+    size: "full",
+  },
+  {
+    name: "color1",
+    size: "full",
+  },
+  {
+    name: "title2",
+    size: "full",
+  },
+  {
+    name: "color2",
+    size: "full",
+  },
+  {
+    name: "title3",
+    size: "full",
+  },
+  {
+    name: "color3",
+    size: "full",
+  },
+  {
+    name: "title4",
+    size: "full",
+  },
+  {
+    name: "color4",
     size: "full",
   },
 ];
@@ -118,7 +146,27 @@ export const Section5userBoardData = [
     size: "full",
   },
   {
-    name: "images",
+    name: "image1",
+    size: "full",
+  },
+  {
+    name: "image2",
+    size: "full",
+  },
+  {
+    name: "image3",
+    size: "full",
+  },
+  {
+    name: "image4",
+    size: "full",
+  },
+  {
+    name: "image5",
+    size: "full",
+  },
+  {
+    name: "image6",
     size: "full",
   },
 ];
@@ -184,7 +232,27 @@ export const Section6userBoardData = [
     size: "full",
   },
   {
-    name: "services",
+    name: "title1",
+    size: "full",
+  },
+  {
+    name: "title2",
+    size: "full",
+  },
+  {
+    name: "title3",
+    size: "full",
+  },
+  {
+    name: "title4",
+    size: "full",
+  },
+  {
+    name: "title5",
+    size: "full",
+  },
+  {
+    name: "title6",
     size: "full",
   },
 ];
@@ -274,7 +342,19 @@ export const Section7userBoardData = [
     size: "full",
   },
   {
-    name: "lists",
+    name: "list1",
+    size: "full",
+  },
+  {
+    name: "list2",
+    size: "full",
+  },
+  {
+    name: "list3",
+    size: "full",
+  },
+  {
+    name: "list4",
     size: "full",
   },
   {
@@ -305,7 +385,7 @@ export const Section8userBoardData = [
     size: "full",
   },
   {
-    name: "lists",
+    name: "teamMembers",
     size: "full",
   },
 ];
@@ -382,15 +462,35 @@ export const Section8userData = [
 ];
 export const Section9userBoardData = [
   {
-    name: "number",
+    name: "number1",
     size: "full",
   },
   {
-    name: "title",
+    name: "label1",
     size: "full",
   },
   {
-    name: "image",
+    name: "number2",
+    size: "full",
+  },
+  {
+    name: "label2",
+    size: "full",
+  },
+  {
+    name: "number3",
+    size: "full",
+  },
+  {
+    name: "label3",
+    size: "full",
+  },
+  {
+    name: "number4",
+    size: "full",
+  },
+  {
+    name: "label4",
     size: "full",
   },
 ];

@@ -22,6 +22,7 @@ export const getSection1 = async (req, res) => {
 };
 export const postSection1 = async (req, res) => {
   try {
+    await Section1.deleteMany({});
     const { image, background, header, paragraph, button_label } = req.body;
     const newSection1 = await Section1.create({
       image,
@@ -53,6 +54,7 @@ export const getSection2 = async (req, res) => {
 };
 export const postSection2 = async (req, res) => {
   try {
+    await Section2.deleteMany({});
     const {
       image,
       background,
@@ -110,6 +112,7 @@ export const getSection3 = async (req, res) => {
 };
 export const postSection3 = async (req, res) => {
   try {
+    await Section3.deleteMany({});
     const { header, background_image } = req.body;
     const newSection3 = await Section3.create({ header, background_image });
     res.status(201).json(newSection3);
@@ -135,6 +138,7 @@ export const getSection4 = async (req, res) => {
 };
 export const postSection4 = async (req, res) => {
   try {
+    await Section4.deleteMany({});
     const { about, span, header, button_label, background_image } = req.body;
     const newSection4 = await Section4.create({
       about,
@@ -166,6 +170,7 @@ export const getSection5 = async (req, res) => {
 };
 export const postSection5 = async (req, res) => {
   try {
+    await Section5.deleteMany({});
     const { label, paragraph, image1, image2, image3, image4, image5, image6 } =
       req.body;
     const newSection5 = await Section5.create({
@@ -201,6 +206,7 @@ export const getSection6 = async (req, res) => {
 };
 export const postSection6 = async (req, res) => {
   try {
+    await Section6.deleteMany({});
     const {
       background_image,
       about,
@@ -248,6 +254,7 @@ export const getSection7 = async (req, res) => {
 };
 export const postSection7 = async (req, res) => {
   try {
+    await Section7.deleteMany({});
     const {
       image,
       background_image,
@@ -295,6 +302,7 @@ export const getSection8 = async (req, res) => {
 };
 export const postSection8 = async (req, res) => {
   try {
+    await Section8.deleteMany({});
     const { background_image, teamMembers } = req.body;
     const newSection8 = await Section8.create({
       background_image,
@@ -323,6 +331,7 @@ export const getSection9 = async (req, res) => {
 };
 export const postSection9 = async (req, res) => {
   try {
+    await Section9.deleteMany({});
     const {
       number1,
       label1,
@@ -366,6 +375,7 @@ export const getSection10 = async (req, res) => {
 };
 export const postSection10 = async (req, res) => {
   try {
+    await Section10.deleteMany({});
     const { background_image, teamMembers } = req.body;
     const newSection10 = await Section10.create({
       background_image,
@@ -394,6 +404,7 @@ export const getSection11 = async (req, res) => {
 };
 export const postSection11 = async (req, res) => {
   try {
+    await Section11.deleteMany({});
     const { about, header, span, blogPosts } = req.body;
     const newSection11 = await Section11.create({
       about,
@@ -424,6 +435,7 @@ export const getSection12 = async (req, res) => {
 };
 export const postSection12 = async (req, res) => {
   try {
+    await Section12.deleteMany({});
     const {
       background,
       header1,
@@ -471,6 +483,7 @@ export const getSection13 = async (req, res) => {
 };
 export const postSection13 = async (req, res) => {
   try {
+    await Section13.deleteMany({});
     const {
       background_image,
       paragraph,

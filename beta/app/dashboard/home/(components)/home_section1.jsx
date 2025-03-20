@@ -1,4 +1,5 @@
 "use client";
+import { IoExitOutline } from "react-icons/io5";
 import { Section1userBoardData } from "@/app/database/SectionData";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -60,9 +61,7 @@ const Home_Section_1 = () => {
   return (
     <section className="w-full h-full p-10 flex flex-col relative text-black">
       <div className="w-full h-full flex flex-col gap-10 ">
-        {" "}
         <div className="w-full h-full flex items-start flex-col gap-5 ">
-          {" "}
           <div className="flex justify-between items-center w-full h-fit">
             <button
               className="bg-white p-3 rounded-[6px] text-black border border-black"
@@ -71,7 +70,6 @@ const Home_Section_1 = () => {
                 setIsClicked(!isClicked);
               }}
             >
-              {" "}
               Create Section1{" "}
             </button>
             <button
@@ -80,71 +78,27 @@ const Home_Section_1 = () => {
                 deleteAllSection1();
               }}
             >
-              {" "}
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full border border-black">
-            {" "}
-            <div className="w-full flex flex-row items-center h-fit p-5">
-              {" "}
-              {Section1userBoardData.map((data, index) => (
+          <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+            {Section1userBoardData.map((item, index) => {
+              const data = section1Data[0];
+              return (
                 <div
                   key={index}
-                  className="h-fit w-full text-center"
-                  style={{ width: `${100 / data.length}%` }}
+                  className="w-full h-full flex border flex-col border-black rounded-xl items-center justify-start"
                 >
-                  <p>{data.name}</p>
-                </div>
-              ))}{" "}
-            </div>{" "}
-            <hr className="bg-black w-full h-[1px]"></hr>
-            <div className="w-full h-fit flex flex-col">
-              {" "}
-              {section1Data.map((data, index) => (
-                <div
-                  className="w-full flex flex-row items-center gap-2 h-fit p-5 "
-                  key={index}
-                >
-                  {" "}
-                  <div
-                    className="h-fit overflow-hidden  text-center"
-                    style={{ width: `${100 / section1Data.length}%` }}
-                  >
-                    {" "}
-                    <p>{data.image}</p>{" "}
-                  </div>{" "}
-                  <div
-                    className="h-fit overflow-hidden text-center"
-                    style={{ width: `${100 / section1Data.length}%` }}
-                  >
-                    {" "}
-                    <p>{data.background}</p>{" "}
-                  </div>{" "}
-                  <div
-                    className="h-fit overflow-hidden  text-center"
-                    style={{ width: `${100 / section1Data.length}%` }}
-                  >
-                    {" "}
-                    <p>{data.header}</p>{" "}
-                  </div>{" "}
-                  <div
-                    className="h-fit overflow-hidden  text-center"
-                    style={{ width: `${100 / section1Data.length}%` }}
-                  >
-                    {" "}
-                    <p>{data.paragraph}</p>{" "}
-                  </div>{" "}
-                  <div
-                    className="h-fit overflow-hidden  text-center"
-                    style={{ width: `${100 / section1Data.length}%` }}
-                  >
-                    {" "}
-                    <p>{data.button_label}</p>{" "}
+                  <div className="w-full h-fit flex justify-center py-4">
+                    <h1>{item.name}</h1>
+                  </div>
+                  <hr className="w-full h-[1px] bg-black" />
+                  <div className="flex w-full h-full items-center justify-center p-5">
+                    <h1>{data ? data[item.name] : "N/A"}</h1>
                   </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -156,9 +110,16 @@ const Home_Section_1 = () => {
             onSubmit={handleFormSubmit}
             className="bg-white w-1/2 h-fit rounded-2xl p-6 gap-2 flex flex-col"
           >
-            <h1 className="text-3xl font-montserrat font-bold text-black">
-              Create Section 1
-            </h1>
+            <div className="w-full h-fit flex items-center justify-between">
+              <h1 className="text-3xl font-montserrat font-bold text-black">
+                Create Section 1
+              </h1>
+              <IoExitOutline
+                size={30}
+                onClick={() => setIsClicked(false)}
+                cursor={"pointer"}
+              />
+            </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
                 <h1>Image</h1>

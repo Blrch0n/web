@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Section8userBoardData } from "@/app/database/SectionData";
+import { IoExitOutline } from "react-icons/io5";
 import axios from "axios";
 const Home_Section_8 = () => {
   const [section8Data, setSection8Data] = useState([]);
@@ -77,12 +78,12 @@ const Home_Section_8 = () => {
     fetchData();
   }, []);
   return (
-    <section className="w-full h-full p-10 flex flex-col">
+    <section className="w-full h-full p-10 flex flex-col text-black">
       <div className="w-full h-full flex flex-col gap-10">
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black"
+              className="bg-white p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -92,7 +93,7 @@ const Home_Section_8 = () => {
               Create Section8{" "}
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black"
+              className="bg-white p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection8();
               }}
@@ -102,31 +103,55 @@ const Home_Section_8 = () => {
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="w-full flex flex-row items-center h-fit p-5 bg-blue-200">
-              {Section8userBoardData.map((data, index) => (
-                <div
-                  key={index}
-                  className="h-fit w-full"
-                  style={{ width: data.size }}
-                >
-                  <p>{data.name}</p>
-                </div>
-              ))}
-            </div>
-            <div className="w-full h-fit flex flex-col">
-              {section8Data.map((data, index) => (
-                <div
-                  className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
-                  key={index}
-                >
-                  <div className="h-fit w-full ">
-                    <p>{data.background_image}</p>
+            <div className="grid grid-cols-2 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+              {Section8userBoardData.map((item, index) => {
+                const data = section8Data[0];
+                const teamMembers = data?.teamMembers || [];
+                return (
+                  <div
+                    key={index}
+                    className="w-full min-h-full h-fit flex border flex-col border-black rounded-xl items-center justify-start"
+                  >
+                    <div className="w-full h-fit flex justify-center py-4 font-bold">
+                      <h1>{item.name}</h1>
+                    </div>
+                    <hr className="w-full h-[1px] bg-black" />
+                    {item.name === "teamMembers" && data ? (
+                      <div className="grid grid-cols-2 gap-5 w-full h-full items-center justify-center p-5">
+                        {teamMembers.map((member, index) => (
+                          <div
+                            key={index}
+                            className="w-full h-full border rounded-xl border-black"
+                          >
+                            <div className="w-full h-fit flex justify-center py-4 font-bold">
+                              <h1>{`#${index + 1} team`}</h1>
+                            </div>
+                            <hr />
+                            <div className="w-full h-full flex flex-col items-center gap-5">
+                              <div className="w-full h-fit text-center">
+                                {member.name}
+                              </div>
+                              <div className="w-full h-fit text-center">
+                                {member.role}
+                              </div>
+                              <div className="w-full h-fit text-center">
+                                {member.image}
+                              </div>
+                              <div className="w-full h-fit text-center">
+                                {member.paragraph}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="w-full h-full flex justify-center items-center">
+                        {data?.background_image}
+                      </div>
+                    )}
                   </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.teamMembers[0].name}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -137,9 +162,16 @@ const Home_Section_8 = () => {
             onSubmit={handleFormSubmit}
             className="bg-white w-1/2 h-fit rounded-2xl p-6 gap-2 flex flex-col"
           >
-            <h1 className="text-3xl font-montserrat font-bold text-black">
-              Create Section 8
-            </h1>
+            <div className="w-full h-fit flex flex-row items-center justify-between">
+              <h1 className="text-3xl font-montserrat font-bold text-black">
+                Create Section 8
+              </h1>
+              <IoExitOutline
+                size={30}
+                cursor={"pointer"}
+                onClick={() => setIsClicked(false)}
+              />
+            </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
                 <h1>Background Image</h1>
