@@ -1,13 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { FaHome } from "react-icons/fa";
-import { FaInfoCircle } from "react-icons/fa";
-import { FaImages } from "react-icons/fa";
-import { MdFindInPage } from "react-icons/md";
-import { FaBloggerB } from "react-icons/fa";
-import { MdOutlineContactSupport } from "react-icons/md";
+import { FaHome, FaInfoCircle, FaImages, FaBloggerB } from "react-icons/fa";
+import { MdFindInPage, MdOutlineContactSupport } from "react-icons/md";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const sideBarItems_data = [
   {
@@ -66,53 +62,58 @@ const sideBarItems_data = [
 
 const SideBarItems = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const [isClicked, setIsClicked] = useState(0);
 
   useEffect(() => {
     console.log("Route changed to:", pathname);
   }, [pathname]);
+
+  // Determine if Home or one of its extra sections is active
+  const isHomeActive =
+    pathname === "/dashboard/" || pathname.startsWith("/dashboard/home");
+
   return (
     <div className="w-full h-fit flex flex-col text-black gap-1">
       {sideBarItems_data.map((data, index) => (
-        <Link
-          className="w-full h-fit flex flex-col"
-          href={`/dashboard/${data.url}`}
-          key={index}
-          onClick={() => {
-            setIsClicked((prev) => (prev === index + 1 ? 0 : index + 1));
-          }}
-        >
-          <div
-            className="w-full h-fit flex flex-row gap-4 p-5 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
-            style={{
-              background:
-                pathname === `/dashboard/${data.url}` ? "#ff9a00" : "#fff",
-            }}
-          >
-            {data.icon}
-            <p>{data.title}</p>
-          </div>
-          {data.title === "Home" && isClicked === index + 1 && (
-            <div className="w-full h-fit pl-4 flex flex-col py-1">
-              {data.extra_sections.map((value, index) => (
-                <Link href={`/dashboard/${value.url}`} key={index} className="">
+        <div key={index} className="flex flex-col">
+          <Link href={`/dashboard/${data.url}`}>
+            <div
+              className="w-full h-fit flex flex-row gap-4 p-5 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
+              onClick={() =>
+                setIsClicked((prev) => (prev === index + 1 ? 0 : index + 1))
+              }
+              style={{
+                background:
+                  pathname === `/dashboard/${data.url}` ? "#ff9a00" : "#fff",
+              }}
+            >
+              {data.icon}
+              <p>{data.title}</p>
+            </div>
+          </Link>
+          {/* For Home, show extra sections if either toggled open or the route is active */}
+          {data.title === "Home" &&
+            (isClicked === index + 1 || isHomeActive) && (
+              <div className="w-full h-fit pl-4 flex flex-col py-1">
+                {data.extra_sections.map((value, idx) => (
                   <div
-                    className="w-full h-fit flex-row gap-4 p-5 mt-1 items-center hidden bg-[#fff] hover:text-black rounded-lg cursor-pointer"
+                    key={idx}
+                    onClick={() => router.push(`/dashboard/${value.url}`)}
+                    className="w-full h-fit flex flex-row gap-4 p-5 mt-1 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
                     style={{
                       background:
                         pathname === `/dashboard/${value.url}`
                           ? "#ff9a00"
                           : "#fff",
-                      display: data.order === isClicked ? "flex" : "none",
                     }}
                   >
                     <p>{value.title}</p>
                   </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </Link>
+                ))}
+              </div>
+            )}
+        </div>
       ))}
     </div>
   );
