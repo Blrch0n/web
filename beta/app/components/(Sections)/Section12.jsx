@@ -35,7 +35,7 @@ const Section12 = () => {
   } = section12Data[0];
   return (
     <section
-      className="w-full min-h-[609.6px] h-fit py-20 flex overflow-hidden justify-center relative items-center"
+      className="w-full min-h-[609.6px] h-fit py-20 flex overflow-hidden justify-center relative bg-no-repeat bg-cover items-center"
       style={{ backgroundImage: `url(${background})` }}
     >
       <span className="absolute top-0 right-0 w-[40%] max-[992px]:w-full h-full z-[10]">

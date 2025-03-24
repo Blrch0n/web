@@ -37,80 +37,30 @@ const sideBarItems_data = [
     title: "About Us",
     url: "about-us",
     order: 2,
-    extra_sections: [
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-    ],
   },
   {
     icon: <FaImages />,
     title: "Portfolio",
     url: "portfolio",
     order: 3,
-    extra_sections: [
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-    ],
   },
   {
     icon: <MdFindInPage />,
     title: "Pages",
     url: "pages",
     order: 4,
-    extra_sections: [
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-    ],
   },
   {
     icon: <FaBloggerB />,
     title: "Blog",
     url: "blog",
     order: 5,
-    extra_sections: [
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-    ],
   },
   {
     icon: <MdOutlineContactSupport />,
     title: "Contact Us",
     url: "contact-us",
     order: 6,
-    extra_sections: [
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-      { title: "Home", url: "" },
-    ],
   },
 ];
 
@@ -122,10 +72,11 @@ const SideBarItems = () => {
     console.log("Route changed to:", pathname);
   }, [pathname]);
   return (
-    <div className="w-full h-fit flex flex-col text-black">
+    <div className="w-full h-fit flex flex-col text-black gap-1">
       {sideBarItems_data.map((data, index) => (
-        <div
+        <Link
           className="w-full h-fit flex flex-col"
+          href={`/dashboard/${data.url}`}
           key={index}
           onClick={() => {
             setIsClicked((prev) => (prev === index + 1 ? 0 : index + 1));
@@ -141,25 +92,27 @@ const SideBarItems = () => {
             {data.icon}
             <p>{data.title}</p>
           </div>
-          <div className="w-full h-fit pl-4 flex flex-col py-1">
-            {data.extra_sections.map((value, index) => (
-              <Link href={`/dashboard/${value.url}`} key={index} className="">
-                <div
-                  className="w-full h-fit flex-row gap-4 p-5 mt-1 items-center hidden bg-[#fff] hover:text-black rounded-lg cursor-pointer"
-                  style={{
-                    background:
-                      pathname === `/dashboard/${value.url}`
-                        ? "#ff9a00"
-                        : "#fff",
-                    display: data.order === isClicked ? "flex" : "none",
-                  }}
-                >
-                  <p>{value.title}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+          {data.title === "Home" && isClicked === index + 1 && (
+            <div className="w-full h-fit pl-4 flex flex-col py-1">
+              {data.extra_sections.map((value, index) => (
+                <Link href={`/dashboard/${value.url}`} key={index} className="">
+                  <div
+                    className="w-full h-fit flex-row gap-4 p-5 mt-1 items-center hidden bg-[#fff] hover:text-black rounded-lg cursor-pointer"
+                    style={{
+                      background:
+                        pathname === `/dashboard/${value.url}`
+                          ? "#ff9a00"
+                          : "#fff",
+                      display: data.order === isClicked ? "flex" : "none",
+                    }}
+                  >
+                    <p>{value.title}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </Link>
       ))}
     </div>
   );

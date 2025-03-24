@@ -11,6 +11,11 @@ import Section10 from "../models/section10.model.js";
 import Section11 from "../models/section11.model.js";
 import Section12 from "../models/section12.model.js";
 import Section13 from "../models/section13.model.js";
+import AboutUsSection1 from "../models/(about-us)/AboutUsSection1.model.js";
+import AboutUsSection2 from "../models/(about-us)/AboutUsSection2.model.js";
+import AboutUsSection3 from "../models/(about-us)/AboutUsSection3.model.js";
+import Blog1 from "../models/(blog)/blog1.model.js";
+import Portfolio1 from "../models/(portfolio)/portfolio1.model.js";
 
 export const getSection1 = async (req, res) => {
   try {
@@ -512,6 +517,167 @@ export const postSection13 = async (req, res) => {
 export const deleteAllSection13 = async (req, res) => {
   try {
     await Section13.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getAboutUsSection1 = async (req, res) => {
+  try {
+    const getSection1 = await AboutUsSection1.find();
+    res.status(200).json(getSection1);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postAboutUsSection1 = async (req, res) => {
+  try {
+    await AboutUsSection1.deleteMany({});
+    const { background } = req.body;
+    const newSection1 = await AboutUsSection1.create({
+      background,
+    });
+    res.status(201).json(newSection1);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteAboutUsSection1 = async (req, res) => {
+  try {
+    await AboutUsSection1.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getAboutUsSection2 = async (req, res) => {
+  try {
+    const getSection2 = await AboutUsSection2.find();
+    res.status(200).json(getSection2);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postAboutUsSection2 = async (req, res) => {
+  try {
+    await AboutUsSection2.deleteMany({});
+    const {
+      background,
+      image,
+      about,
+      span,
+      header,
+      paragraph,
+      button_label,
+      progresses,
+    } = req.body;
+    const newSection2 = await AboutUsSection2.create({
+      background,
+      image,
+      about,
+      span,
+      header,
+      paragraph,
+      button_label,
+      progresses,
+    });
+    res.status(201).json(newSection2);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteAboutUsSection2 = async (req, res) => {
+  try {
+    await AboutUsSection2.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getAboutUsSection3 = async (req, res) => {
+  try {
+    const getSection3 = await AboutUsSection3.find();
+    res.status(200).json(getSection3);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postAboutUsSection3 = async (req, res) => {
+  try {
+    await AboutUsSection3.deleteMany({});
+    const { background, image, about, span, header, jobs } = req.body;
+    const newSection3 = await AboutUsSection3.create({
+      background,
+      image,
+      about,
+      span,
+      header,
+      jobs,
+    });
+    res.status(201).json(newSection3);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteAboutUsSection3 = async (req, res) => {
+  try {
+    await AboutUsSection3.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getBlog = async (req, res) => {
+  try {
+    const Blog = await Blog1.find();
+    res.status(200).json(Blog);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postBlog = async (req, res) => {
+  try {
+    await Blog1.deleteMany({});
+    const { images } = req.body;
+    const newSection3 = await Blog1.create({
+      images,
+    });
+    res.status(201).json(newSection3);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deleteBlog = async (req, res) => {
+  try {
+    await Blog1.deleteMany({});
+    res.status(200).json({ message: "All sections deleted successfully" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getPortfolio = async (req, res) => {
+  try {
+    const Portfolio = await Portfolio1.find();
+    res.status(200).json(Portfolio);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const postPortfolio = async (req, res) => {
+  try {
+    await Portfolio1.deleteMany({});
+    const { images } = req.body;
+    const newSection3 = await Portfolio1.create({
+      images,
+    });
+    res.status(201).json(newSection3);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const deletePortfolio = async (req, res) => {
+  try {
+    await Portfolio1.deleteMany({});
     res.status(200).json({ message: "All sections deleted successfully" });
   } catch (error) {
     console.log(error);

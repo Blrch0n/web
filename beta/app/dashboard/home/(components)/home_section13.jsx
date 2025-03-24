@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Section13userBoardData } from "@/app/database/SectionData";
+import { IoExitOutline } from "react-icons/io5";
 import axios from "axios";
 const Home_Section_13 = () => {
   const [section13Data, setSection13Data] = useState([]);
@@ -21,7 +22,7 @@ const Home_Section_13 = () => {
         `${process.env.NEXT_PUBLIC_SERVER_URL}/13`
       );
       console.log(response.data);
-      setSection13Data({});
+      setSection13Data([]);
     } catch (error) {
       console.log(error);
     }
@@ -102,12 +103,12 @@ const Home_Section_13 = () => {
     fetchData();
   }, []);
   return (
-    <section className="w-full h-full p-10 flex flex-col">
+    <section className="w-full h-full p-10 flex flex-col text-black">
       <div className="w-full h-full flex flex-col gap-10">
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black"
+              className="bg-white p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -117,7 +118,7 @@ const Home_Section_13 = () => {
               Create Section13{" "}
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black"
+              className="bg-white p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection13();
               }}
@@ -126,47 +127,57 @@ const Home_Section_13 = () => {
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="w-full flex flex-row items-center h-fit p-5 bg-blue-200">
-              {Section13userBoardData.map((data, index) => (
-                <div
-                  key={index}
-                  className="h-fit w-full"
-                  style={{ width: data.size }}
-                >
-                  <p>{data.name}</p>
-                </div>
-              ))}
-            </div>
-            <div className="w-full h-fit flex flex-col">
-              {section13Data.map((data, index) => (
-                <div
-                  className="w-full flex flex-row items-center h-fit p-5 bg-blue-200"
-                  key={index}
-                >
-                  <div className="h-fit w-full ">
-                    <p>{data.background_image}</p>
+          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full border border-black">
+            <div className="w-full grid grid-cols-3 gap-5 items-center h-fit p-5 border">
+              {Section13userBoardData.map((item, index) => {
+                const data = section13Data[0] || {}; // Ensure data is at least an empty object
+
+                return (
+                  <div
+                    key={index}
+                    className="w-full min-h-full h-fit flex border flex-col border-black rounded-xl items-center justify-start overflow-hidden"
+                  >
+                    <div className="w-full h-fit flex justify-center py-4 font-bold">
+                      <h1>{item.name}</h1>
+                    </div>
+                    <hr className="w-full h-[1px] bg-black" />
+                    <div className="w-full h-full flex justify-center items-center">
+                      {item.name === "instagramImages" &&
+                      data.instagramImages ? (
+                        <div className="w-full h-fit min-h-[150px] grid grid-cols-3 gap-2">
+                          {data.instagramImages.map((image, imgIndex) => (
+                            <div
+                              className="w-full h-fit flex items-center justify-center border border-black"
+                              key={imgIndex}
+                            >
+                              {image ? (
+                                <img
+                                  src={image}
+                                  alt="Instagram"
+                                  className="w-full h-auto"
+                                />
+                              ) : (
+                                <h1>NAH</h1>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      ) : item.name === "Section13_data" &&
+                        data.Section13_data ? (
+                        <div className="w-full h-fit min-h-[150px] flex flex-col items-center justify-center text-center">
+                          {data.Section13_data.map((section, secIndex) => (
+                            <h1 key={secIndex}>{section.name}</h1>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="w-full h-fit min-h-[150px] flex flex-col items-center justify-center text-center">
+                          <h1>{data[item.name]}</h1>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.paragraph}</p>
-                  </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.button_label}</p>
-                  </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.header1}</p>
-                  </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.header2}</p>
-                  </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.instagramImages[0]}</p>
-                  </div>
-                  <div className="h-fit w-full ">
-                    <p>{data.Section13_data[0].name}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -178,10 +189,17 @@ const Home_Section_13 = () => {
             onSubmit={handleFormSubmit}
             className="bg-white w-1/2 h-fit rounded-2xl p-6 gap-2 flex flex-col"
           >
-            <h1 className="text-3xl font-montserrat font-bold text-black">
-              Create Section 13
-            </h1>
-            <div className="w-full h-fit flex flex-col gap-5 text-black">
+            <div className="w-full h-fit flex flex-row items-center justify-between">
+              <h1 className="text-3xl font-montserrat font-bold text-black">
+                Create Section 11
+              </h1>
+              <IoExitOutline
+                size={30}
+                cursor={"pointer"}
+                onClick={() => setIsClicked(false)}
+              />
+            </div>
+            <div className="w-full h-fit grid grid-cols-3 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
                 <h1>background_image</h1>
                 <input
@@ -307,7 +325,7 @@ const Home_Section_13 = () => {
               </div>
               <button
                 type="submit" // Change to submit type
-                className="bg-black text-white py-4 rounded-xl"
+                className="bg-black text-white h-20 py-4 rounded-xl"
               >
                 Create
               </button>

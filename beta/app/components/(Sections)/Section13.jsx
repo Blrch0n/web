@@ -34,7 +34,7 @@ const Section13 = () => {
 
   return (
     <section
-      className="w-full p-[100px] max-[800px]:p-10 min-h-[501px] flex justify-center items-center"
+      className="w-full p-[100px] max-[800px]:p-10 min-h-[501px] bg-no-repeat bg-cover flex justify-center items-center"
       style={{ backgroundImage: `url(${background_image})` }}
     >
       <div className="max-w-[1140px] w-full h-full max-[800px]:flex-col  flex flex-row gap-[30px] justify-between">

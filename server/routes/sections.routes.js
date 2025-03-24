@@ -39,6 +39,18 @@ import {
   postSection7,
   postSection8,
   postSection9,
+  getAboutUsSection1,
+  postAboutUsSection1,
+  deleteAboutUsSection1,
+  getAboutUsSection2,
+  postAboutUsSection2,
+  deleteAboutUsSection2,
+  getAboutUsSection3,
+  postAboutUsSection3,
+  deleteAboutUsSection3,
+  getBlog,
+  deleteBlog,
+  postBlog,
 } from "../controllers/section.controller.js";
 
 const sectionsRouter = Router();
@@ -82,5 +94,20 @@ sectionsRouter.delete("/12", deleteAllSection12);
 sectionsRouter.post("/13", postSection13);
 sectionsRouter.get("/13", getSection13);
 sectionsRouter.delete("/13", deleteAllSection13);
+sectionsRouter.post("/about-us/1", postAboutUsSection1);
+sectionsRouter.get("/about-us/1", getAboutUsSection1);
+sectionsRouter.delete("/about-us/1", deleteAboutUsSection1);
+sectionsRouter.post("/about-us/2", postAboutUsSection2);
+sectionsRouter.get("/about-us/2", getAboutUsSection2);
+sectionsRouter.delete("/about-us/2", deleteAboutUsSection2);
+sectionsRouter.post("/about-us/3", postAboutUsSection3);
+sectionsRouter.get("/about-us/3", getAboutUsSection3);
+sectionsRouter.delete("/about-us/3", deleteAboutUsSection3);
+sectionsRouter.post("/blog", postBlog);
+sectionsRouter.get("/blog", getBlog);
+sectionsRouter.delete("/blog", deleteBlog);
+sectionsRouter.post("/portfolio", postAboutUsSection3);
+sectionsRouter.get("/portfolio", getAboutUsSection3);
+sectionsRouter.delete("/portfolio", deleteAboutUsSection3);
 
 export default sectionsRouter;

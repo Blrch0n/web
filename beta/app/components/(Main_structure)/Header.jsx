@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { VscThreeBars } from "react-icons/vsc";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdOutlineShoppingBag } from "react-icons/md";
-import { FaPlus } from "react-icons/fa";
 
 const Navbar_data = [
   {
@@ -87,7 +86,13 @@ const Header = () => {
                   key={index}
                   className="px-[20px] py-3 cursor-pointer group hover:text-[#ff9a00] duration-300 relative"
                 >
-                  <a href={`/${item.label.toLowerCase().replace(" ", "-")}`}>
+                  <a
+                    href={
+                      item.label === "Home"
+                        ? "/"
+                        : `/${item.label.toLowerCase().replace(" ", "-")}`
+                    }
+                  >
                     {item.label}
                   </a>
                   {item.navs && (

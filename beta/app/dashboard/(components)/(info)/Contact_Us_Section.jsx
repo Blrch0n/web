@@ -31,7 +31,7 @@ const Contact_Us_Section = () => {
       <div className="w-full h-full flex flex-col gap-10">
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <button className="bg-white p-3 rounded-[6px] text-black">
-            Create User
+            Create Section1
           </button>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
             <div className="w-full flex flex-row items-center h-fit p-5 bg-blue-200">

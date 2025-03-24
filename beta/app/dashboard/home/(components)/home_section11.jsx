@@ -90,7 +90,7 @@ const Home_Section_11 = () => {
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black"
+              className="bg-white p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsCliked(true);
@@ -99,7 +99,7 @@ const Home_Section_11 = () => {
               Create Section11
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black"
+              className="bg-white p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection11();
               }}
@@ -154,7 +154,7 @@ const Home_Section_11 = () => {
                       </div>
                     ) : (
                       <div className="w-full h-full flex justify-center items-center">
-                        {data?.background_image}
+                        {data ? data[item.name] : ""}
                       </div>
                     )}
                   </div>

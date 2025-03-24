@@ -615,7 +615,7 @@ export const Section11userData = [
 ];
 export const Section12userBoardData = [
   {
-    name: "background_image",
+    name: "background",
     size: "full",
   },
   {
@@ -639,10 +639,6 @@ export const Section12userBoardData = [
     size: "full",
   },
   {
-    name: "paragraph",
-    size: "full",
-  },
-  {
     name: "button1_label",
     size: "full",
   },
@@ -661,7 +657,7 @@ export const Section12userBoardData = [
 ];
 export const Section12userData = [
   {
-    background_image: "image_form.jpg",
+    background: "image_form.jpg",
     header1: "Address:",
     paragraph1: "29 North Redwood Court,Wantagh, NY 11793",
     header2: "Information:",
@@ -699,11 +695,11 @@ export const Section13userBoardData = [
     size: "full",
   },
   {
-    name: "images",
+    name: "instagramImages",
     size: "full",
   },
   {
-    name: "links",
+    name: "Section13_data",
     size: "full",
   },
 ];
