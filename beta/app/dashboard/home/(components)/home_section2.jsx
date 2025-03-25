@@ -94,7 +94,17 @@ const Home_Section_2 = () => {
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="flex w-full h-full items-center justify-center p-5">
-                      <h1>{data ? data[item.name] : "N/A"}</h1>
+                      {data &&
+                      (item.name === "image" || item.name === "background") ? (
+                        <img
+                          src={`${data[item.name]}`}
+                          className="w-auto h-auto max-w-[200px] max-h-[150px] object-contain mx-auto"
+                        />
+                      ) : data ? (
+                        <h1>{data[item.name]}</h1>
+                      ) : (
+                        "N/A"
+                      )}
                     </div>
                   </div>
                 );

@@ -127,8 +127,12 @@ const Home_Section_10 = () => {
                               <div className="w-full h-fit text-center">
                                 {`Role : ${member.role}`}
                               </div>
-                              <div className="w-full h-fit text-center">
-                                {`Image : ${member.image}`}
+                              <div className="w-full h-fit text-center justify-center items-center">
+                                <img
+                                  src={`${member.image}`}
+                                  alt="image"
+                                  className="max-w-[200px] max-h-[200px] object-cover"
+                                />
                               </div>
                             </div>
                           </div>
@@ -136,7 +140,10 @@ const Home_Section_10 = () => {
                       </div>
                     ) : (
                       <div className="w-full h-full flex justify-center items-center">
-                        {data?.background_image}
+                        <img
+                          src={`${data?.background_image}`}
+                          alt="background"
+                        />
                       </div>
                     )}
                   </div>

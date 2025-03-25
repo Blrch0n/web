@@ -93,20 +93,20 @@ const Portfolio_Section = () => {
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="grid grid-cols-2 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+            <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
               {section8Data[0]?.images.map((data, index) => (
                 <div
                   key={index}
-                  className="flex flex-col border border-black text-black rounded-2xl overflow-hidden w-full h-full"
+                  className="flex flex-col border border-black text-black rounded-2xl p-3 overflow-hidden w-full h-full"
                 >
                   <img
                     src={data?.image}
                     alt={`Member ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-fit object-cover max-h-[250px]"
                   />
                   <div className="p-4">
-                    <h2 className="text-lg font-semibold">{data?.span}</h2>
-                    <p>{data?.paragraph}</p>
+                    <h2>Span: {data?.span}</h2>
+                    <p>Paragraph: {data?.paragraph}</p>
                   </div>
                 </div>
               ))}
@@ -141,7 +141,7 @@ const Portfolio_Section = () => {
                       name="image"
                       value={member.image}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Name"
+                      placeholder="image"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -150,7 +150,7 @@ const Portfolio_Section = () => {
                       name="span"
                       value={member.span}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Role"
+                      placeholder="span"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />

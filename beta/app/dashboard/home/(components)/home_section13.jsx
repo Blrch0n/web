@@ -169,6 +169,12 @@ const Home_Section_13 = () => {
                             <h1 key={secIndex}>{section.name}</h1>
                           ))}
                         </div>
+                      ) : item.name.includes("image") && data[item.name] ? (
+                        <img
+                          src={data[item.name]}
+                          alt="Image"
+                          className="w-full h-auto"
+                        />
                       ) : (
                         <div className="w-full h-fit min-h-[150px] flex flex-col items-center justify-center text-center">
                           <h1>{data[item.name]}</h1>

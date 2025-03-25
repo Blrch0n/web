@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 
 const section3_data = [
@@ -12,19 +13,35 @@ const section3_data = [
 
 const Section3 = () => {
   const [clickedIndex, setClickedIndex] = useState(null);
+  const [sectionData3, setSectionData3] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/about-us/3`
+        );
+        setSectionData3(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <section
       className="w-full h-fit py-[100px] flex items-center justify-center bg-no-repeat bg-cover bg-center"
-      style={{ backgroundImage: "url(/team-bg.jpg)" }}
+      style={{ backgroundImage: `url(${sectionData3[0]?.background})` }}
     >
       <div className="max-w-[1140px] h-fit flex flex-col gap-10 w-full">
         <div className="text-center">
           <h2 className="text-[18px] font-bold font-montserrat text-[#f783aa]">
-            TEAM
+            {sectionData3[0]?.about}
           </h2>
           <h1 className="text-[#222] font-montserrat text-[32px] font-black">
-            <span className="text-[#ff9a00]">Our Team</span> Members
+            <span className="text-[#ff9a00]">{sectionData3[0]?.span}</span>
+            {sectionData3[0]?.header}
           </h1>
         </div>
         <div className="w-full h-fit">
@@ -60,7 +77,7 @@ const Section3 = () => {
               </div>
             ))}
             <img
-              src="/team-image.jpg"
+              src={`${sectionData3[0]?.image}`}
               className="w-full h-auto absolute bottom-0 mx-auto"
             ></img>
           </div>

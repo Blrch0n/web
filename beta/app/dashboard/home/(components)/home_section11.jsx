@@ -142,8 +142,8 @@ const Home_Section_11 = () => {
                               <div className="w-full h-fit text-center">
                                 {member.title}
                               </div>
-                              <div className="w-full h-fit text-center">
-                                {member.image}
+                              <div className="w-full h-fit text-center max-w-[300px] max-h-[200px]">
+                                <img src={`${member.image}`} alt="image" />
                               </div>
                               <div className="w-full h-fit text-center">
                                 {member.description}
@@ -153,7 +153,7 @@ const Home_Section_11 = () => {
                         ))}
                       </div>
                     ) : (
-                      <div className="w-full h-full flex justify-center items-center">
+                      <div className="w-full h-full flex justify-center items-center text-[50px] font-bold">
                         {data ? data[item.name] : ""}
                       </div>
                     )}

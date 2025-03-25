@@ -12,7 +12,6 @@ const sideBarItems_data = [
     url: "",
     order: 1,
     extra_sections: [
-      { title: "All", url: "/" },
       { title: "Section1", url: "home/section1" },
       { title: "Section2", url: "home/section2" },
       { title: "Section3", url: "home/section3" },
@@ -33,6 +32,11 @@ const sideBarItems_data = [
     title: "About Us",
     url: "about-us",
     order: 2,
+    extra_sections: [
+      { title: "Section1", url: "about-us/" },
+      { title: "Section2", url: "about-us/section2" },
+      { title: "Section3", url: "about-us/section3" },
+    ],
   },
   {
     icon: <FaImages />,
@@ -94,6 +98,26 @@ const SideBarItems = () => {
           </Link>
           {/* For Home, show extra sections if either toggled open or the route is active */}
           {data.title === "Home" &&
+            (isClicked === index + 1 || isHomeActive) && (
+              <div className="w-full h-fit pl-4 flex flex-col py-1">
+                {data.extra_sections.map((value, idx) => (
+                  <div
+                    key={idx}
+                    onClick={() => router.push(`/dashboard/${value.url}`)}
+                    className="w-full h-fit flex flex-row gap-4 p-5 mt-1 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
+                    style={{
+                      background:
+                        pathname === `/dashboard/${value.url}`
+                          ? "#ff9a00"
+                          : "#fff",
+                    }}
+                  >
+                    <p>{value.title}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          {data.title === "About Us" &&
             (isClicked === index + 1 || isHomeActive) && (
               <div className="w-full h-fit pl-4 flex flex-col py-1">
                 {data.extra_sections.map((value, idx) => (

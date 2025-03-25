@@ -78,27 +78,30 @@ const Home_Section_12 = () => {
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full border border-black">
-            <div className="w-full grid grid-cols-3 gap-5 items-center h-fit p-5">
+            <div className="w-full h-full grid grid-cols-3 gap-5 items-center p-5">
               {Section12userBoardData.map((item, index) => {
                 const data = section12Data[0];
                 return (
                   <div
                     key={index}
-                    className="w-full min-h-full h-fit flex border flex-col border-black rounded-xl items-center justify-start"
+                    className="w-full h-full flex border flex-col border-black rounded-xl items-center justify-center"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
                       <h1>{item.name}</h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="w-full h-full flex justify-center items-center">
-                      {data ? (
-                        <div className="w-full h-fit min-h-[150px] flex items-center justify-center text-center">
-                          <h1>{data[item.name]}</h1>
-                        </div>
+                      {data && item.name.includes("background") ? (
+                        <img
+                          src={`${data[item.name]}`}
+                          className=" max-w-[500px] max-h-[300px] object-contain mx-auto"
+                        />
+                      ) : data ? (
+                        <h1 className="font-bold h-full text-5xl">
+                          {data[item.name]}
+                        </h1>
                       ) : (
-                        <div className="w-full h-fit min-h-[150px] flex items-center justify-center text-center">
-                          <h1>NAH</h1>
-                        </div>
+                        "N/A"
                       )}
                     </div>
                   </div>

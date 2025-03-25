@@ -82,7 +82,11 @@ const About_Us_Section = () => {
             <h1 className="text-center py-5">Background</h1>
             <hr />
             <div className="w-full flex h-full justify-center gap-5 items-center  p-5">
-              <h1>{section1Data[0]?.background}</h1>
+              <img
+                src={section1Data[0]?.background}
+                className="w-full h-full"
+                alt="background"
+              />
             </div>
           </div>
         </div>

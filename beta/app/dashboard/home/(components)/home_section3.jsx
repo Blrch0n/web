@@ -90,7 +90,18 @@ const Home_Section_3 = () => {
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="flex w-full h-full items-center justify-center p-5">
-                      <h1>{data ? data[item.name] : "N/A"}</h1>
+                      {data && item.name === "background_image" ? (
+                        <img
+                          src={`${data[item.name]}`}
+                          className=" w-full h-fit object-contain mx-auto"
+                        />
+                      ) : data ? (
+                        <h1 className="font-bold text-5xl">
+                          {data[item.name]}
+                        </h1>
+                      ) : (
+                        "N/A"
+                      )}
                     </div>
                   </div>
                 );
@@ -115,7 +126,7 @@ const Home_Section_3 = () => {
                 <input
                   type="text"
                   name="header" // Add name attribute
-                  placeholder="Image"
+                  placeholder="header"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />

@@ -71,6 +71,7 @@ const Home_Section_8 = () => {
           `${process.env.NEXT_PUBLIC_SERVER_URL}/8`
         );
         setSection8Data(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -134,9 +135,10 @@ const Home_Section_8 = () => {
                               <div className="w-full h-fit text-center">
                                 {member.role}
                               </div>
-                              <div className="w-full h-fit text-center">
-                                {member.image}
-                              </div>
+                              <img
+                                className="w-full h-fit text-center max-w-[150px] max-h-[150px] object-cover"
+                                src={`${member.image}`}
+                              ></img>
                               <div className="w-full h-fit text-center">
                                 {member.paragraph}
                               </div>
@@ -146,7 +148,11 @@ const Home_Section_8 = () => {
                       </div>
                     ) : (
                       <div className="w-full h-full flex justify-center items-center">
-                        {data?.background_image}
+                        <img
+                          src={section8Data[0]?.background_image}
+                          className="w-full h-auto object-cover"
+                          alt="background_image"
+                        />
                       </div>
                     )}
                   </div>

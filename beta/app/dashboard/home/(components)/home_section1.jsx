@@ -82,23 +82,34 @@ const Home_Section_1 = () => {
             </button>
           </div>
           <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
-            {Section1userBoardData.map((item, index) => {
-              const data = section1Data[0];
-              return (
-                <div
-                  key={index}
-                  className="w-full h-full flex border flex-col border-black rounded-xl items-center justify-start"
-                >
-                  <div className="w-full h-fit flex justify-center py-4">
-                    <h1>{item.name}</h1>
+            {section1Data.length > 0 &&
+              Section1userBoardData.map((item, index) => {
+                const data = section1Data[0];
+                return (
+                  <div
+                    key={index}
+                    className="w-full h-full flex border flex-col border-black rounded-xl items-center justify-start"
+                  >
+                    <div className="w-full h-fit flex justify-center py-4">
+                      <h1>{item.name}</h1>
+                    </div>
+                    <hr className="w-full h-[1px] bg-black" />
+                    <div className="flex w-full h-full items-center justify-center p-5">
+                      {data &&
+                      (item.name === "image" || item.name === "background") ? (
+                        <img
+                          src={`${data[item.name]}`}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : data ? (
+                        <h1>{data[item.name]}</h1>
+                      ) : (
+                        "N/A"
+                      )}
+                    </div>
                   </div>
-                  <hr className="w-full h-[1px] bg-black" />
-                  <div className="flex w-full h-full items-center justify-center p-5">
-                    <h1>{data ? data[item.name] : "N/A"}</h1>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
       </div>

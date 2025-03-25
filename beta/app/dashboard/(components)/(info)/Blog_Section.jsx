@@ -95,21 +95,21 @@ const Blog_Section = () => {
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="grid grid-cols-2 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+            <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
               {section8Data[0]?.images.map((data, index) => (
                 <div
                   key={index}
-                  className="flex flex-col border border-black text-black rounded-2xl overflow-hidden w-full h-full"
+                  className="flex flex-col border border-black text-black rounded-2xl w-full h-full p-3"
                 >
                   <img
                     src={data?.image}
                     alt={`Member ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-auto h-full max-h-[250px] object-cover"
                   />
                   <div className="p-4">
-                    <h2 className="text-lg font-semibold">{data?.date}</h2>
-                    <p>{data?.author}</p>
-                    <p>{data?.paragraph}</p>
+                    <p>Date:{data?.date}</p>
+                    <p>Author:{data?.author}</p>
+                    <p>Paragraph: {data?.paragraph}</p>
                   </div>
                 </div>
               ))}
@@ -144,7 +144,7 @@ const Blog_Section = () => {
                       name="image"
                       value={member.image}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Name"
+                      placeholder="Image"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -153,7 +153,7 @@ const Blog_Section = () => {
                       name="date"
                       value={member.date}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Role"
+                      placeholder="Date"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -162,7 +162,8 @@ const Blog_Section = () => {
                       name="author"
                       value={member.author}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Role"
+                      placeholder="author
+        "
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />

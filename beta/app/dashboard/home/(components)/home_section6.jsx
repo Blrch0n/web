@@ -91,7 +91,18 @@ const Home_Section_6 = () => {
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="flex w-full h-full items-center justify-center p-5">
-                      <h1>{data ? data[item.name] : "N/A"}</h1>
+                      {data && item.name.includes("image") ? (
+                        <img
+                          src={`${data[item.name]}`}
+                          className=" max-w-[500px] max-h[400px] object-contain mx-auto"
+                        />
+                      ) : data ? (
+                        <h1 className="font-bold text-5xl">
+                          {data[item.name]}
+                        </h1>
+                      ) : (
+                        "N/A"
+                      )}
                     </div>
                   </div>
                 );
