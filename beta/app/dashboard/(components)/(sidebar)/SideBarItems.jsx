@@ -81,39 +81,39 @@ const SideBarItems = () => {
     <div className="w-full h-fit flex flex-col text-black gap-1">
       {sideBarItems_data.map((data, index) => (
         <div key={index} className="flex flex-col">
-          <Link href={`/dashboard/${data.url}`}>
-            <div
-              className="w-full h-fit flex flex-row gap-4 p-5 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
-              onClick={() =>
-                setIsClicked((prev) => (prev === index + 1 ? 0 : index + 1))
-              }
-              style={{
-                background:
-                  pathname === `/dashboard/${data.url}` ? "#ff9a00" : "#fff",
-              }}
-            >
-              {data.icon}
-              <p>{data.title}</p>
-            </div>
-          </Link>
+          <div
+            className="w-full h-fit flex flex-row gap-4 p-5 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
+            onClick={() =>
+              setIsClicked((prev) => (prev === index + 1 ? 0 : index + 1))
+            }
+            style={{
+              background:
+                pathname === `/dashboard/${data.url}` ? "#ff9a00" : "#fff",
+            }}
+          >
+            {data.icon}
+            <p>{data.title}</p>
+          </div>
+
           {/* For Home, show extra sections if either toggled open or the route is active */}
           {data.title === "Home" &&
             (isClicked === index + 1 || isHomeActive) && (
               <div className="w-full h-fit pl-4 flex flex-col py-1">
                 {data.extra_sections.map((value, idx) => (
-                  <div
-                    key={idx}
-                    onClick={() => router.push(`/dashboard/${value.url}`)}
-                    className="w-full h-fit flex flex-row gap-4 p-5 mt-1 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
-                    style={{
-                      background:
-                        pathname === `/dashboard/${value.url}`
-                          ? "#ff9a00"
-                          : "#fff",
-                    }}
-                  >
-                    <p>{value.title}</p>
-                  </div>
+                  <Link href={`/dashboard/${value.url}`}>
+                    <div
+                      key={idx}
+                      className="w-full h-fit flex flex-row gap-4 p-5 mt-1 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
+                      style={{
+                        background:
+                          pathname === `/dashboard/${value.url}`
+                            ? "#ff9a00"
+                            : "#fff",
+                      }}
+                    >
+                      <p>{value.title}</p>
+                    </div>
+                  </Link>
                 ))}
               </div>
             )}
@@ -121,19 +121,20 @@ const SideBarItems = () => {
             (isClicked === index + 1 || isHomeActive) && (
               <div className="w-full h-fit pl-4 flex flex-col py-1">
                 {data.extra_sections.map((value, idx) => (
-                  <div
-                    key={idx}
-                    onClick={() => router.push(`/dashboard/${value.url}`)}
-                    className="w-full h-fit flex flex-row gap-4 p-5 mt-1 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
-                    style={{
-                      background:
-                        pathname === `/dashboard/${value.url}`
-                          ? "#ff9a00"
-                          : "#fff",
-                    }}
-                  >
-                    <p>{value.title}</p>
-                  </div>
+                  <Link href={`/dashboard/${value.url}`}>
+                    <div
+                      key={idx}
+                      className="w-full h-fit flex flex-row gap-4 p-5 mt-1 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
+                      style={{
+                        background:
+                          pathname === `/dashboard/${value.url}`
+                            ? "#ff9a00"
+                            : "#fff",
+                      }}
+                    >
+                      <p>{value.title}</p>
+                    </div>
+                  </Link>
                 ))}
               </div>
             )}

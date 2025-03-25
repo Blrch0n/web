@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Section4userBoardData } from "@/app/database/SectionData";
+import { IoExitOutline } from "react-icons/io5";
+
 import axios from "axios";
 const Home_Section_4 = () => {
   const [section4Data, setSection4Data] = useState([]);
@@ -98,6 +100,8 @@ const Home_Section_4 = () => {
                       {data && item.name === "background_image" ? (
                         <img
                           src={`${data[item.name]}`}
+                          alt={item.name}
+                          key={index}
                           className=" max-w-[500px] max-h[400px] object-contain mx-auto"
                         />
                       ) : data ? (
@@ -122,9 +126,16 @@ const Home_Section_4 = () => {
             onSubmit={handleFormSubmit}
             className="bg-white w-1/2 h-fit rounded-2xl p-6 gap-2 flex flex-col"
           >
-            <h1 className="text-3xl font-montserrat font-bold text-black">
-              Create Section 4
-            </h1>
+            <div className="w-full h-fit flex flex-row items-center justify-between">
+              <h1 className="text-3xl font-montserrat font-bold text-black">
+                Create Section 4
+              </h1>
+              <IoExitOutline
+                size={30}
+                cursor={"pointer"}
+                onClick={() => setIsClicked(false)}
+              />
+            </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
                 <h1>about</h1>
