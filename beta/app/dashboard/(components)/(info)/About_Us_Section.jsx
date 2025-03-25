@@ -31,10 +31,9 @@ const About_Us_Section = () => {
         data
       );
 
-      // Update local state with new data
-      setSection1Data([...section1Data, response.data]);
+      setSection1Data(response.data);
+      console.log(response.data);
 
-      // Close modal and reset form
       setIsClicked(false);
       e.target.reset();
     } catch (error) {
@@ -82,7 +81,9 @@ const About_Us_Section = () => {
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full border border-black">
             <h1 className="text-center py-5">Background</h1>
             <hr />
-            <div className="w-full grid grid-cols-3 gap-5 items-center h-fit p-5"></div>
+            <div className="w-full flex h-full justify-center gap-5 items-center  p-5">
+              <h1>{section1Data[0]?.background}</h1>
+            </div>
           </div>
         </div>
       </div>

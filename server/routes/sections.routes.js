@@ -51,6 +51,9 @@ import {
   getBlog,
   deleteBlog,
   postBlog,
+  postPortfolio,
+  getPortfolio,
+  deletePortfolio,
 } from "../controllers/section.controller.js";
 
 const sectionsRouter = Router();
@@ -106,8 +109,8 @@ sectionsRouter.delete("/about-us/3", deleteAboutUsSection3);
 sectionsRouter.post("/blog", postBlog);
 sectionsRouter.get("/blog", getBlog);
 sectionsRouter.delete("/blog", deleteBlog);
-sectionsRouter.post("/portfolio", postAboutUsSection3);
-sectionsRouter.get("/portfolio", getAboutUsSection3);
-sectionsRouter.delete("/portfolio", deleteAboutUsSection3);
+sectionsRouter.post("/portfolio", postPortfolio);
+sectionsRouter.get("/portfolio", getPortfolio);
+sectionsRouter.delete("/portfolio", deletePortfolio);
 
 export default sectionsRouter;
