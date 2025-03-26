@@ -61,7 +61,7 @@ const About_Us_Section = () => {
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -70,7 +70,7 @@ const About_Us_Section = () => {
               Create Section1
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection1();
               }}
@@ -78,13 +78,13 @@ const About_Us_Section = () => {
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full border border-black">
+          <div className="flex flex-col bg-black text-white rounded-2xl overflow-hidden w-full h-full border border-black">
             <h1 className="text-center py-5">Background</h1>
             <hr />
             <div className="w-full flex h-full justify-center gap-5 items-center  p-5">
               <img
                 src={section1Data[0]?.background}
-                className="w-full h-full"
+                className="w-auto h-full object-cover"
                 alt="background"
               />
             </div>

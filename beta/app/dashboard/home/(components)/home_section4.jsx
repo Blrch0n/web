@@ -64,7 +64,7 @@ const Home_Section_4 = () => {
         >
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -74,7 +74,7 @@ const Home_Section_4 = () => {
               Create Section4{" "}
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection4();
               }}
@@ -83,14 +83,14 @@ const Home_Section_4 = () => {
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="grid grid-cols-2 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-black">
+            <div className="grid grid-cols-2 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border text-white overflow-y-scroll border-black">
               {Section4userBoardData.map((item, index) => {
                 const data = section4Data[0];
                 return (
                   <div
                     key={index}
-                    className="w-full h-full flex border flex-col border-black rounded-xl items-center justify-start"
+                    className="w-full h-full flex border flex-col border-black bg-[#36454f] rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4">
                       <h1>{item.name}</h1>

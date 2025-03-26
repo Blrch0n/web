@@ -58,7 +58,7 @@ const Home_Section_12 = () => {
         <div className="w-full h-full flex items-start flex-col gap-5">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -68,7 +68,7 @@ const Home_Section_12 = () => {
               Create Section12{" "}
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection12();
               }}
@@ -77,24 +77,24 @@ const Home_Section_12 = () => {
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full border border-black">
-            <div className="w-full h-full grid grid-cols-3 gap-5 items-center p-5">
+          <div className="flex flex-col rounded-2xl overflow-hidden bg-black text-white w-full h-full border border-black">
+            <div className="w-full h-full grid grid-cols-3 gap-5 items-center overflow-y-scroll p-5">
               {Section12userBoardData.map((item, index) => {
                 const data = section12Data[0];
                 return (
                   <div
                     key={index}
-                    className="w-full h-full flex border flex-col border-black rounded-xl items-center justify-center"
+                    className="w-full h-full flex border bg-[#36454f] flex-col border-black rounded-xl items-center justify-center"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
                       <h1>{item.name}</h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
-                    <div className="w-full h-full flex justify-center items-center">
+                    <div className="w-full h-full flex justify-center items-center p-2">
                       {data && item.name.includes("background") ? (
                         <img
                           src={`${data[item.name]}`}
-                          className=" max-w-[500px] max-h-[300px] object-contain mx-auto"
+                          className="w-full h-full object-contain mx-auto"
                         />
                       ) : data ? (
                         <h1 className="font-bold h-full text-5xl">
@@ -120,7 +120,7 @@ const Home_Section_12 = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 11
+                Create Section 12
               </h1>
               <IoExitOutline
                 size={30}
@@ -128,7 +128,7 @@ const Home_Section_12 = () => {
                 onClick={() => setIsClicked(false)}
               />
             </div>
-            <div className="w-full h-fit flex flex-col gap-5 text-black">
+            <div className="w-full h-fit grid grid-cols-3 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
                 <h1>background_image</h1>
                 <input
@@ -231,7 +231,7 @@ const Home_Section_12 = () => {
               </div>
               <button
                 type="submit" // Change to submit type
-                className="bg-black text-white py-4 rounded-xl"
+                className="bg-black text-white py-4 rounded-xl col-span-2"
               >
                 Create
               </button>

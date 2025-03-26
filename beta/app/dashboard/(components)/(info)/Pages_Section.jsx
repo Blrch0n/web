@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { Section8userBoardData } from "@/app/database/SectionData";
 import { IoExitOutline } from "react-icons/io5";
 import axios from "axios";
-const Pages_Section = () => {
+const Portfolio_Section = () => {
   const [section8Data, setSection8Data] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
   const [formData, setFormData] = useState({
@@ -72,7 +73,7 @@ const Pages_Section = () => {
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -82,7 +83,7 @@ const Pages_Section = () => {
               Create Portfolio
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection8();
               }}
@@ -91,21 +92,21 @@ const Pages_Section = () => {
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+          <div className="flex flex-col rounded-2xl w-full h-[600px] overflow-hidden bg-black text-white">
+            <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-y-auto w-full h-full border border-black">
               {section8Data[0]?.images.map((data, index) => (
                 <div
                   key={index}
-                  className="flex flex-col border border-black text-black rounded-2xl overflow-hidden w-full h-full"
+                  className="flex flex-col border border-black bg-[#36454f] rounded-2xl p-3 w-full h-full"
                 >
                   <img
                     src={data?.image}
                     alt={`Member ${index + 1}`}
-                    className="w-auto h-fit object-cover"
+                    className="w-full h-auto object-cover "
                   />
                   <div className="p-4">
-                    <h2 className="text-lg font-semibold">{data?.span}</h2>
-                    <p>{data?.paragraph}</p>
+                    <h2>Span: {data?.span}</h2>
+                    <p>Paragraph: {data?.paragraph}</p>
                   </div>
                 </div>
               ))}
@@ -187,4 +188,4 @@ const Pages_Section = () => {
   );
 };
 
-export default Pages_Section;
+export default Portfolio_Section;

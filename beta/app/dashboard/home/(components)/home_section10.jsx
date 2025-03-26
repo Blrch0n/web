@@ -76,7 +76,7 @@ const Home_Section_10 = () => {
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -86,7 +86,7 @@ const Home_Section_10 = () => {
               Create Section10{" "}
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection10();
               }}
@@ -95,15 +95,15 @@ const Home_Section_10 = () => {
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="grid grid-cols-2 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-black text-white">
+            <div className="grid grid-cols-2 gap-5 p-5 rounded-2xl overflow-y-scroll w-full h-full border border-black">
               {Section10userBoardData.map((item, index) => {
                 const data = section10Data[0];
                 const teamMembers = data?.teamMembers || [];
                 return (
                   <div
                     key={index}
-                    className="w-full min-h-full h-fit flex border flex-col border-black rounded-xl items-center justify-start"
+                    className="w-full min-h-full h-fit flex border flex-col bg-[#36454f] overflow-hidden border-black rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
                       <h1>{item.name}</h1>
@@ -114,12 +114,12 @@ const Home_Section_10 = () => {
                         {teamMembers.map((member, index) => (
                           <div
                             key={index}
-                            className="w-full h-full border rounded-xl border-black"
+                            className="w-full h-full border rounded-xl overflow-hidden text-white border-white"
                           >
                             <div className="w-full h-fit flex justify-center py-4 font-bold">
                               <h1>{`#${index + 1} team`}</h1>
                             </div>
-                            <hr />
+                            <hr className="black" />
                             <div className="w-full h-full flex flex-col items-center gap-5">
                               <div className="w-full h-fit text-center">
                                 {`Name : ${member.name}`}
@@ -131,7 +131,7 @@ const Home_Section_10 = () => {
                                 <img
                                   src={`${member.image}`}
                                   alt="image"
-                                  className="max-w-[200px] max-h-[200px] object-cover"
+                                  className="w-full h-full object-cover"
                                 />
                               </div>
                             </div>

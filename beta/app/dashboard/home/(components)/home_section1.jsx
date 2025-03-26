@@ -64,31 +64,31 @@ const Home_Section_1 = () => {
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
               }}
             >
-              Create Section1{" "}
+              Хэсэг 1 үүсгэх
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection1();
               }}
             >
-              Delete AllData
+              Бүх датаг устгах
             </button>
           </div>
-          <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+          <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full text-white border bg-[#000d0d] border-white">
             {section1Data.length > 0 &&
               Section1userBoardData.map((item, index) => {
                 const data = section1Data[0];
                 return (
                   <div
                     key={index}
-                    className="w-full h-full flex border flex-col border-black rounded-xl items-center justify-start"
+                    className="w-full h-full flex border flex-col border-white bg-[#36454f] rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4">
                       <h1>{item.name}</h1>
@@ -123,7 +123,7 @@ const Home_Section_1 = () => {
           >
             <div className="w-full h-fit flex items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 1
+                Хэсэг 1 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -133,51 +133,51 @@ const Home_Section_1 = () => {
             </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Image</h1>
+                <h1>Зураг</h1>
                 <input
                   type="text"
                   name="image" // Add name attribute
-                  placeholder="Image"
+                  placeholder="Зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>background</h1>
+                <h1>Дэвсгэр</h1>
                 <input
                   type="text"
                   name="background" // Add name attribute
-                  placeholder="background"
+                  placeholder="Дэвсгэр"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>header</h1>
+                <h1>Толгой хэсэг</h1>
                 <input
                   type="text"
                   name="header" // Add name attribute
-                  placeholder="header"
+                  placeholder="Толгой хэсэг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>paragraph</h1>
+                <h1>Догол мөр</h1>
                 <input
                   type="text"
                   name="paragraph" // Add name attribute
-                  placeholder="paragraph"
+                  placeholder="Догол мөр"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>button_label</h1>
+                <h1>Товчны шошго</h1>
                 <input
                   type="text"
                   name="button_label" // Add name attribute
-                  placeholder="button_label"
+                  placeholder="Товчны шошго"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
@@ -186,7 +186,7 @@ const Home_Section_1 = () => {
                 type="submit" // Change to submit type
                 className="bg-black text-white py-4 rounded-xl"
               >
-                Create
+                Үүсгэх
               </button>
             </div>
           </form>

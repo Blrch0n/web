@@ -73,7 +73,7 @@ const Portfolio_Section = () => {
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -83,7 +83,7 @@ const Portfolio_Section = () => {
               Create Portfolio
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection8();
               }}
@@ -92,17 +92,17 @@ const Portfolio_Section = () => {
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+          <div className="flex flex-col rounded-2xl w-full h-[600px] overflow-hidden bg-black text-white">
+            <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-y-auto w-full h-full border border-black">
               {section8Data[0]?.images.map((data, index) => (
                 <div
                   key={index}
-                  className="flex flex-col border border-black text-black rounded-2xl p-3 overflow-hidden w-full h-full"
+                  className="flex flex-col border border-black bg-[#36454f] rounded-2xl p-3 w-full h-full"
                 >
                   <img
                     src={data?.image}
                     alt={`Member ${index + 1}`}
-                    className="w-full h-fit object-cover max-h-[250px]"
+                    className="w-full h-auto object-cover "
                   />
                   <div className="p-4">
                     <h2>Span: {data?.span}</h2>

@@ -62,7 +62,7 @@ const About_Us_Section3 = () => {
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -71,7 +71,7 @@ const About_Us_Section3 = () => {
               Create Section3
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection1();
               }}
@@ -84,16 +84,16 @@ const About_Us_Section3 = () => {
             section1Data.map((data, index) => {
               return (
                 <div
-                  className="w-full h-full border grid grid-cols-3 justify-center items-center border-black gap-2 p-5"
+                  className="w-full h-full rounded-xl bg-black text-white border grid grid-cols-3 justify-center items-center border-black gap-2 p-5"
                   key={index}
                 >
                   {Object.entries(data).map(([key, value], i) => (
                     <div
                       key={i}
-                      className="border border-black p-5 w-full rounded-lg h-full flex flex-col items-center justify-start"
+                      className="border border-black p-5 bg-[#36454f] w-full rounded-lg h-full flex flex-col items-center justify-start"
                     >
-                      <h1 className="text-sm text-gray-600">{key}</h1>
-                      <hr className="w-full border-t border-black my-2" />
+                      <h1 className="text-sm">{key}</h1>
+                      <hr className="w-full border-t my-2" />
                       {typeof value === "string" &&
                       (value.includes("image") ||
                         value.includes("background")) ? (
@@ -124,7 +124,7 @@ const About_Us_Section3 = () => {
                 onClick={() => setIsClicked(false)}
               />
             </div>
-            <div className="w-full h-fit flex flex-col gap-5 text-black">
+            <div className="w-full h-fit grid grid-cols-3 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
                 <h1>Background Image</h1>
                 <input

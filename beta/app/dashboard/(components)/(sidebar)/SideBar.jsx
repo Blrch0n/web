@@ -4,7 +4,7 @@ import SideBarItems from "./SideBarItems";
 
 const SideBar = () => {
   return (
-    <div className="w-[400px] p-10 h-screen overflow-y-auto overflow-x-hidden bg-black gap-5 flex flex-col">
+    <div className="w-[400px] p-10 h-screen overflow-y-auto overflow-x-hidden bg-[#1a2228] gap-5 flex flex-col">
       <Profile />
       <SideBarItems />
     </div>

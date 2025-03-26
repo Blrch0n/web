@@ -62,13 +62,13 @@ const Header = () => {
     <section
       className="flex items-center justify-center w-full h-fit m-auto fixed top-0 z-50 duration-150"
       style={{
-        backgroundColor: visible ? "rgba(255, 255, 255, 0.8)" : "transparent",
+        backgroundColor: visible ? "rgba(88, 88,88)" : "transparent",
         boxShadow: visible ? "0px 4px 4px rgba(0, 0, 0, 0.25)" : "none",
-        color: visible ? "#000000" : "#ffffff",
+        color: "#fff",
       }}
     >
       <div className="w-[1140px] max-[1200px]:w-full max-[1200px]:px-[50px] h-fit flex flex-row items-center">
-        <div className="w-full h-full py-[30px] flex items-center justify-between px-[15px]">
+        <div className="w-full h-full py-[15px] flex items-center justify-between px-[15px]">
           <a href="/">
             <Image
               src="/logo_4.png"

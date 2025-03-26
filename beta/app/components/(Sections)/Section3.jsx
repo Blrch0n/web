@@ -26,10 +26,18 @@ const Section3 = () => {
     <section
       className={`w-full min-h-[403px] h-fit py-10 max-[1200px]:h-[283px] max-[1200px]:px-20 flex  justify-center items-center bg-cover object-cover transition-opacity duration-700
       }`}
-      style={{ backgroundImage: `url(${background_image})` }}
+      style={{
+        backgroundImage: `url(${
+          background_image
+            ? background_image
+            : "https://portomega-html.foxthemes.me/assets/images/backgrounds/video-promo.jpg"
+        })`,
+      }}
     >
       <div className="max-w-[1140px] w-full h-fit flex flex-row max-[576px]:flex-col max-[576px]:text-center py-10 justify-between items-center">
-        <h2 className="font-bold text-[32px] font-montserrat ">{header}</h2>
+        <h2 className="font-bold text-[32px] font-montserrat ">
+          {header ? header : "we create successful digital products"}
+        </h2>
         <a className="relative w-[67px] h-[67px] flex items-center justify-center bg-[#ff9a00] cursor-pointer rounded-full ">
           {/* The ripple effect span */}
           <span className="absolute top-0 m-auto w-full h-full rounded-full border-2 border-white animate-ripple delay-0"></span>

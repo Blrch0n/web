@@ -75,7 +75,7 @@ const Blog_Section = () => {
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -85,7 +85,7 @@ const Blog_Section = () => {
               Create Blog
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection8();
               }}
@@ -94,12 +94,12 @@ const Blog_Section = () => {
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-black text-white">
+            <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-y-scroll w-full h-full border border-black">
               {section8Data[0]?.images.map((data, index) => (
                 <div
                   key={index}
-                  className="flex flex-col border border-black text-black rounded-2xl w-full h-full p-3"
+                  className="flex flex-col border bg-[#36454f] border-black rounded-2xl w-full h-full p-3"
                 >
                   <img
                     src={data?.image}

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FaHome, FaInfoCircle, FaImages, FaBloggerB } from "react-icons/fa";
 import { MdFindInPage, MdOutlineContactSupport } from "react-icons/md";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const sideBarItems_data = [
   {
@@ -11,20 +11,21 @@ const sideBarItems_data = [
     title: "Home",
     url: "",
     order: 1,
+    translate_text: "Нүүр",
     extra_sections: [
-      { title: "Section1", url: "home/section1" },
-      { title: "Section2", url: "home/section2" },
-      { title: "Section3", url: "home/section3" },
-      { title: "Section4", url: "home/section4" },
-      { title: "Section5", url: "home/section5" },
-      { title: "Section6", url: "home/section6" },
-      { title: "Section7", url: "home/section7" },
-      { title: "Section8", url: "home/section8" },
-      { title: "Section9", url: "home/section9" },
-      { title: "Section10", url: "home/section10" },
-      { title: "Section11", url: "home/section11" },
-      { title: "Section12", url: "home/section12" },
-      { title: "Section13", url: "home/section13" },
+      { title: "Хэсэг 1", url: "home/section1" },
+      { title: "Хэсэг 2", url: "home/section2" },
+      { title: "Хэсэг 3", url: "home/section3" },
+      { title: "Хэсэг 4", url: "home/section4" },
+      { title: "Хэсэг 5", url: "home/section5" },
+      { title: "Хэсэг 6", url: "home/section6" },
+      { title: "Хэсэг 7", url: "home/section7" },
+      { title: "Хэсэг 8", url: "home/section8" },
+      { title: "Хэсэг 9", url: "home/section9" },
+      { title: "Хэсэг 10", url: "home/section10" },
+      { title: "Хэсэг 11", url: "home/section11" },
+      { title: "Хэсэг 12", url: "home/section12" },
+      { title: "Хэсэг 13", url: "home/section13" },
     ],
   },
   {
@@ -32,10 +33,11 @@ const sideBarItems_data = [
     title: "About Us",
     url: "about-us",
     order: 2,
+    translate_text: "Бидний тухай",
     extra_sections: [
-      { title: "Section1", url: "about-us/" },
-      { title: "Section2", url: "about-us/section2" },
-      { title: "Section3", url: "about-us/section3" },
+      { title: "Хэсэг 1", url: "about-us/" },
+      { title: "Хэсэг 2", url: "about-us/section2" },
+      { title: "Хэсэг 3", url: "about-us/section3" },
     ],
   },
   {
@@ -43,30 +45,33 @@ const sideBarItems_data = [
     title: "Portfolio",
     url: "portfolio",
     order: 3,
+    translate_text: "Портфолио",
   },
   {
     icon: <MdFindInPage />,
     title: "Pages",
     url: "pages",
     order: 4,
+    translate_text: "Хуудаснууд",
   },
   {
     icon: <FaBloggerB />,
     title: "Blog",
     url: "blog",
     order: 5,
+    translate_text: "Блог",
   },
   {
     icon: <MdOutlineContactSupport />,
     title: "Contact Us",
     url: "contact-us",
     order: 6,
+    translate_text: "Холбоо барих",
   },
 ];
 
 const SideBarItems = () => {
   const pathname = usePathname();
-  const router = useRouter();
   const [isClicked, setIsClicked] = useState(0);
 
   useEffect(() => {
@@ -81,55 +86,34 @@ const SideBarItems = () => {
     <div className="w-full h-fit flex flex-col text-black gap-1">
       {sideBarItems_data.map((data, index) => (
         <div key={index} className="flex flex-col">
-          <div
-            className="w-full h-fit flex flex-row gap-4 p-5 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
-            onClick={() =>
-              setIsClicked((prev) => (prev === index + 1 ? 0 : index + 1))
-            }
-            style={{
-              background:
-                pathname === `/dashboard/${data.url}` ? "#ff9a00" : "#fff",
-            }}
-          >
-            {data.icon}
-            <p>{data.title}</p>
-          </div>
+          <Link href={`/dashboard/${data.url}`} key={index}>
+            <div
+              className="w-full h-fit flex flex-row gap-4 p-5 items-center bg-[#e5ddd7] hover:text-black rounded-lg cursor-pointer"
+              onClick={() =>
+                setIsClicked((prev) => (prev === index + 1 ? 0 : index + 1))
+              }
+              style={{
+                background:
+                  pathname === `/dashboard/${data.url}` ? "#ff9a00" : "#e5ddd7",
+              }}
+            >
+              {data.icon}
+              <p>{data.translate_text}</p>
+            </div>
+          </Link>
 
-          {/* For Home, show extra sections if either toggled open or the route is active */}
-          {data.title === "Home" &&
+          {(data.title === "Home" || data.title === "About Us") &&
             (isClicked === index + 1 || isHomeActive) && (
               <div className="w-full h-fit pl-4 flex flex-col py-1">
                 {data.extra_sections.map((value, idx) => (
-                  <Link href={`/dashboard/${value.url}`}>
+                  <Link href={`/dashboard/${value.url}`} key={idx}>
                     <div
-                      key={idx}
-                      className="w-full h-fit flex flex-row gap-4 p-5 mt-1 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
+                      className="w-full h-fit flex flex-row gap-4 p-5 mt-1 items-center bg-[#e5ddd7] hover:text-black rounded-lg cursor-pointer"
                       style={{
                         background:
                           pathname === `/dashboard/${value.url}`
                             ? "#ff9a00"
-                            : "#fff",
-                      }}
-                    >
-                      <p>{value.title}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            )}
-          {data.title === "About Us" &&
-            (isClicked === index + 1 || isHomeActive) && (
-              <div className="w-full h-fit pl-4 flex flex-col py-1">
-                {data.extra_sections.map((value, idx) => (
-                  <Link href={`/dashboard/${value.url}`}>
-                    <div
-                      key={idx}
-                      className="w-full h-fit flex flex-row gap-4 p-5 mt-1 items-center bg-[#fff] hover:text-black rounded-lg cursor-pointer"
-                      style={{
-                        background:
-                          pathname === `/dashboard/${value.url}`
-                            ? "#ff9a00"
-                            : "#fff",
+                            : "#e5ddd7",
                       }}
                     >
                       <p>{value.title}</p>

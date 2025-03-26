@@ -57,7 +57,7 @@ const Home_Section_7 = () => {
         <div className="w-full h-full flex items-start flex-col gap-5 ">
           <div className="flex justify-between items-center w-full h-fit">
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={(e) => {
                 e.preventDefault();
                 setIsClicked(!isClicked);
@@ -67,7 +67,7 @@ const Home_Section_7 = () => {
               Create Section7{" "}
             </button>
             <button
-              className="bg-white p-3 rounded-[6px] text-black border border-black"
+              className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
               onClick={() => {
                 deleteAllSection7();
               }}
@@ -76,14 +76,14 @@ const Home_Section_7 = () => {
               Delete AllData
             </button>
           </div>
-          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full">
-            <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full h-full border border-black">
+          <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-black text-white">
+            <div className="grid grid-cols-3 gap-5 p-5 rounded-2xl overflow-hidden w-full overflow-y-scroll h-full border border-black">
               {Section7userBoardData.map((item, index) => {
                 const data = section7Data[0];
                 return (
                   <div
                     key={index}
-                    className="w-full h-full flex border flex-col border-black rounded-xl items-center justify-start"
+                    className="w-full h-full flex border flex-col border-black bg-[#36454f] rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
                       <h1>{item.name}</h1>
@@ -93,7 +93,7 @@ const Home_Section_7 = () => {
                       {data && item.name.includes("image") ? (
                         <img
                           src={`${data[item.name]}`}
-                          className=" max-w-[500px] max-h-[300px] object-contain mx-auto"
+                          className="w-full h-full object-contain mx-auto"
                         />
                       ) : data ? (
                         <h1 className="font-bold text-5xl">
@@ -127,7 +127,7 @@ const Home_Section_7 = () => {
                 onClick={() => setIsClicked(false)}
               />
             </div>
-            <div className="w-full h-fit flex flex-col gap-5 text-black">
+            <div className="w-full h-fit grid grid-cols-3 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
                 <h1>image</h1>
                 <input
@@ -230,7 +230,7 @@ const Home_Section_7 = () => {
               </div>
               <button
                 type="submit" // Change to submit type
-                className="bg-black text-white py-4 rounded-xl"
+                className="bg-black text-white py-4 rounded-xl col-span-2"
               >
                 Create
               </button>
