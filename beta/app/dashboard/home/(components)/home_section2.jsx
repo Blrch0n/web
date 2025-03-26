@@ -68,7 +68,7 @@ const Home_Section_2 = () => {
               }}
             >
               {" "}
-              Create Section2{" "}
+              Хэсэг 2 үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -76,8 +76,7 @@ const Home_Section_2 = () => {
                 deleteAllSection2();
               }}
             >
-              {" "}
-              Delete AllData
+              Бүх датаг устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-black">
@@ -91,6 +90,17 @@ const Home_Section_2 = () => {
                   >
                     <div className="w-full h-fit flex justify-center py-4">
                       <h1>{item.name}</h1>
+                      {/* {item.name === "image"
+                        ? "Зураг"
+                        : item.name === "background"
+                        ? "Дэвсгэр"
+                        : item.name === "header"
+                        ? "Толгой хэсэг"
+                        : item.name === "paragraph"
+                        ? "Догол мөр"
+                        : item.name === "button_label"
+                        ? "Товчны шошго"
+                        : ""} */}
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="flex w-full h-full items-center justify-center p-5">

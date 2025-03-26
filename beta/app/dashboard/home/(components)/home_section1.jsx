@@ -91,7 +91,19 @@ const Home_Section_1 = () => {
                     className="w-full h-full flex border flex-col border-white bg-[#36454f] rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4">
-                      <h1>{item.name}</h1>
+                      <h1>
+                        {item.name === "image"
+                          ? "Зураг"
+                          : item.name === "background"
+                          ? "Дэвсгэр"
+                          : item.name === "header"
+                          ? "Толгой хэсэг"
+                          : item.name === "paragraph"
+                          ? "Догол мөр"
+                          : item.name === "button_label"
+                          ? "Товчны шошго"
+                          : ""}
+                      </h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="flex w-full h-full items-center justify-center p-5">
