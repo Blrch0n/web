@@ -64,8 +64,7 @@ const Home_Section_3 = () => {
                 setIsClicked(!isClicked);
               }}
             >
-              {" "}
-              Create Section3{" "}
+              Хэсэг 3 үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -73,8 +72,7 @@ const Home_Section_3 = () => {
                 deleteAllSection3();
               }}
             >
-              {" "}
-              Delete AllData
+              Датаг устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-[#000d0d]">
@@ -87,7 +85,9 @@ const Home_Section_3 = () => {
                     className="w-full h-full flex border flex-col border-black bg-[#36454f] text-white rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4">
-                      <h1>{item.name}</h1>
+                      <h1>
+                        {item.name === "background_image" ? "Зураг" : "Гарчиг"}
+                      </h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="flex w-full h-full items-center justify-center p-5">
@@ -121,7 +121,7 @@ const Home_Section_3 = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 3
+                Хэсэг 3 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -131,21 +131,21 @@ const Home_Section_3 = () => {
             </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Header</h1>
+                <h1>Гарчиг</h1>
                 <input
                   type="text"
                   name="header" // Add name attribute
-                  placeholder="header"
+                  placeholder="Гарчиг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>background_image</h1>
+                <h1>Дэвсгэр зураг</h1>
                 <input
                   type="text"
                   name="background_image" // Add name attribute
-                  placeholder="background"
+                  placeholder="Дэвсгэр зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
@@ -155,7 +155,7 @@ const Home_Section_3 = () => {
                 type="submit" // Change to submit type
                 className="bg-black text-white py-4 rounded-xl"
               >
-                Create
+                Шинээр үүсгэх
               </button>
             </div>
           </form>

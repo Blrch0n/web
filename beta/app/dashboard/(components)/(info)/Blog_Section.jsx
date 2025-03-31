@@ -82,7 +82,7 @@ const Blog_Section = () => {
               }}
             >
               {" "}
-              Create Blog
+              Шинэ Влог үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -91,7 +91,7 @@ const Blog_Section = () => {
               }}
             >
               {" "}
-              Delete AllData
+              Бүх Датаг устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-black text-white">
@@ -106,10 +106,10 @@ const Blog_Section = () => {
                     alt={`Member ${index + 1}`}
                     className="w-auto h-full max-h-[250px] object-cover"
                   />
-                  <div className="p-4">
-                    <p>Date:{data?.date}</p>
-                    <p>Author:{data?.author}</p>
-                    <p>Paragraph: {data?.paragraph}</p>
+                  <div className="p-4 ">
+                    <p>Огноо:{data?.date}</p>
+                    <p>Зохиолч:{data?.author}</p>
+                    <p>Дэлгэрэнгүй: {data?.paragraph}</p>
                   </div>
                 </div>
               ))}
@@ -125,7 +125,7 @@ const Blog_Section = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Blog
+                Влог үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -135,16 +135,16 @@ const Blog_Section = () => {
             </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Team Members</h1>
+                <h1>Багийн гишүүд</h1>
                 {formData.images.map((member, index) => (
                   <div key={index} className="border p-4 mb-4 rounded-lg">
-                    <h2 className="mb-2 font-semibold">Member #{index + 1}</h2>
+                    <h2 className="mb-2 font-semibold">Гишүүн #{index + 1}</h2>
                     <input
                       type="text"
                       name="image"
                       value={member.image}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Image"
+                      placeholder="зураг"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -153,7 +153,7 @@ const Blog_Section = () => {
                       name="date"
                       value={member.date}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Date"
+                      placeholder="огноо"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -162,7 +162,7 @@ const Blog_Section = () => {
                       name="author"
                       value={member.author}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="author
+                      placeholder="зохиолч
         "
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
@@ -172,7 +172,7 @@ const Blog_Section = () => {
                       name="paragraph"
                       value={member.paragraph}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Paragraph"
+                      placeholder="дэлгэрэнгүй"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -183,7 +183,7 @@ const Blog_Section = () => {
                   onClick={addTeamMember}
                   className="bg-gray-200 p-2 rounded-[6px] hover:bg-gray-300"
                 >
-                  Add Another Image
+                  Шинэ зураг үүсгэх
                 </button>
               </div>
 
@@ -191,7 +191,7 @@ const Blog_Section = () => {
                 type="submit"
                 className="bg-black text-white py-4 rounded-xl"
               >
-                Create
+                Шинээр үүсгэх
               </button>
             </div>
           </form>

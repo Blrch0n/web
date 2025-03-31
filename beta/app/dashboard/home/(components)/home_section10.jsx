@@ -82,8 +82,7 @@ const Home_Section_10 = () => {
                 setIsClicked(!isClicked);
               }}
             >
-              {" "}
-              Create Section10{" "}
+              Хэсэг 10 үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -91,8 +90,7 @@ const Home_Section_10 = () => {
                 deleteAllSection10();
               }}
             >
-              {" "}
-              Delete AllData
+              Бүх датаг устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-black text-white">
@@ -106,7 +104,11 @@ const Home_Section_10 = () => {
                     className="w-full min-h-full h-fit flex border flex-col bg-[#36454f] overflow-hidden border-black rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
-                      <h1>{item.name}</h1>
+                      <h1>
+                        {item.name === "background_image"
+                          ? "Дэвсгэр зураг"
+                          : "Багийн гишүүд"}
+                      </h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     {item.name === "teamMembers" && data ? (
@@ -162,7 +164,7 @@ const Home_Section_10 = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 5
+                Хэсэг 10 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -172,27 +174,27 @@ const Home_Section_10 = () => {
             </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>background_image</h1>
+                <h1>Дэвсгэр зураг</h1>
                 <input
                   type="text"
                   name="background_image" // Add name attribute
-                  placeholder="background_image"
+                  placeholder="Дэвсгэр зураг"
                   onChange={(e) => handleInputChange(e)}
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Team Members</h1>
+                <h1>Багийн гишүүд</h1>
                 {formData.teamMembers.map((member, index) => (
                   <div key={index} className="border p-4 mb-4 rounded-lg">
-                    <h2 className="mb-2 font-semibold">Member #{index + 1}</h2>
+                    <h2 className="mb-2 font-semibold">Гишүүд #{index + 1}</h2>
                     <input
                       type="text"
                       name="name"
                       value={member.name}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Name"
+                      placeholder="Нэр"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -201,7 +203,7 @@ const Home_Section_10 = () => {
                       name="role"
                       value={member.role}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Role"
+                      placeholder="Үүрэг"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -210,7 +212,7 @@ const Home_Section_10 = () => {
                       name="image"
                       value={member.image}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Image URL"
+                      placeholder="Зургийн зам"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -221,14 +223,14 @@ const Home_Section_10 = () => {
                   onClick={addTeamMember}
                   className="bg-gray-200 p-2 rounded-[6px] hover:bg-gray-300"
                 >
-                  Add Another Member
+                  Шинэ гишүүн нэмэх
                 </button>
               </div>
               <button
                 type="submit" // Change to submit type
                 className="bg-black text-white py-4 rounded-xl"
               >
-                Create
+                Үүсгэх
               </button>
             </div>
           </form>

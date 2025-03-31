@@ -96,7 +96,7 @@ const Home_Section_11 = () => {
                 setIsCliked(true);
               }}
             >
-              Create Section11
+              Хэсэг 11 үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -104,7 +104,7 @@ const Home_Section_11 = () => {
                 deleteAllSection11();
               }}
             >
-              Delete AllData
+              Датаг устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full bg-black text-white h-full">
@@ -118,7 +118,17 @@ const Home_Section_11 = () => {
                     className="w-full min-h-full h-fit flex border flex-col bg-[#36454f] border-black rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
-                      <h1>{item.name}</h1>
+                      <h1>
+                        {item.name === "about"
+                          ? "Тухай"
+                          : item.name === "blogPosts"
+                          ? "Блогын пост"
+                          : item.name === "header"
+                          ? "Толгой гарчиг"
+                          : item.name === "span"
+                          ? "Тодруулсан гарчиг"
+                          : item.name}
+                      </h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     {item.name === "blogPosts" && data ? (
@@ -173,7 +183,7 @@ const Home_Section_11 = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 11
+                Хэсэг 11 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -183,49 +193,49 @@ const Home_Section_11 = () => {
             </div>
             <div className="w-full h-fit grid grid-cols-2 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>about</h1>
+                <h1>Тухай</h1>
                 <input
                   type="text"
                   name="about" // Add name attribute
-                  placeholder="about"
+                  placeholder="Тухай"
                   onChange={(e) => handleInputChange(e)}
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>header</h1>
+                <h1>Толгой гарчиг</h1>
                 <input
                   type="text"
                   name="header" // Add name attribute
-                  placeholder="header"
+                  placeholder="Толгой гарчиг"
                   onChange={(e) => handleInputChange(e)}
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>span</h1>
+                <h1>Тодруулан гарчиг</h1>
                 <input
                   type="text"
                   name="span" // Add name attribute
-                  placeholder="span"
+                  placeholder="Тодруулан гарчиг"
                   onChange={(e) => handleInputChange(e)}
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>blogPosts</h1>
+                <h1>Блогын пост</h1>
                 {formData.blogPosts.map((member, index) => (
                   <div key={index} className="border p-4 mb-4 rounded-lg">
-                    <h2 className="mb-2 font-semibold">Member #{index + 1}</h2>
+                    <h2 className="mb-2 font-semibold">Гишүүд #{index + 1}</h2>
                     <input
                       type="text"
                       name="date"
                       value={member.date}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="date"
+                      placeholder="Огноо"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -234,7 +244,7 @@ const Home_Section_11 = () => {
                       name="author"
                       value={member.author}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="author"
+                      placeholder="Зохиолч"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -243,7 +253,7 @@ const Home_Section_11 = () => {
                       name="title"
                       value={member.title}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="title"
+                      placeholder="Гарчиг"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -252,7 +262,7 @@ const Home_Section_11 = () => {
                       name="image"
                       value={member.image}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Image URL"
+                      placeholder="Зургийн зам"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -272,14 +282,14 @@ const Home_Section_11 = () => {
                   onClick={addTeamMember}
                   className="bg-gray-200 p-2 rounded-[6px] hover:bg-gray-300"
                 >
-                  Add Another Member
+                  Шинэ гишүүн нэмэх
                 </button>
               </div>
               <button
                 type="submit" // Change to submit type
                 className="bg-black text-white py-4 rounded-xl col-span-2"
               >
-                Create
+                Үүсгэх
               </button>
             </div>
           </form>

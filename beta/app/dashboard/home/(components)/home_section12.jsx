@@ -87,7 +87,29 @@ const Home_Section_12 = () => {
                     className="w-full h-full flex border bg-[#36454f] flex-col border-black rounded-xl items-center justify-center"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
-                      <h1>{item.name}</h1>
+                      <h1>
+                        {item.name === "background"
+                          ? "Дэвсгэр зураг"
+                          : item.name === "header1"
+                          ? "Толгой гарчиг 1"
+                          : item.name === "header2"
+                          ? "Толгой гарчиг 2"
+                          : item.name === "paragraph1"
+                          ? "Дэлгэрэнгүй техт 1"
+                          : item.name === "paragraph2"
+                          ? "Дэлгэрэнгүй техт 2"
+                          : item.name === "header3"
+                          ? "Толгой гарчиг 3"
+                          : item.name === "button1_label"
+                          ? "Товч 1"
+                          : item.name === "button2_label"
+                          ? "Товч 2"
+                          : item.name === "button3_label"
+                          ? "Товч 3"
+                          : item.name === "button_label"
+                          ? "Үндсэн товч"
+                          : item.name}
+                      </h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="w-full h-full flex justify-center items-center p-2">
@@ -120,7 +142,7 @@ const Home_Section_12 = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 12
+                Хэсэг 12 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -130,101 +152,101 @@ const Home_Section_12 = () => {
             </div>
             <div className="w-full h-fit grid grid-cols-3 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>background_image</h1>
+                <h1>Дэвсгэр зураг</h1>
                 <input
                   type="text"
                   name="background" // Add name attribute
-                  placeholder="background"
+                  placeholder="Дэвсгэр зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>header1</h1>
+                <h1>Толгой 1</h1>
                 <input
                   type="text"
                   name="header1" // Add name attribute
-                  placeholder="header1"
+                  placeholder="Толгой 1"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>paragraph1</h1>
+                <h1>Дэлгэрэнгүй 1</h1>
                 <input
                   type="text"
                   name="paragraph1" // Add name attribute
-                  placeholder="paragraph1"
+                  placeholder="Дэлгэрэнгүй 1"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>header2</h1>
+                <h1>Толгой 2</h1>
                 <input
                   type="text"
                   name="header2" // Add name attribute
-                  placeholder="header2"
+                  placeholder="Толгой 2"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>paragraph2</h1>
+                <h1>Дэлгэрэнгүй 2</h1>
                 <input
                   type="text"
                   name="paragraph2" // Add name attribute
-                  placeholder="paragraph2"
+                  placeholder="Дэлгэрэнгүй 2"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>header3</h1>
+                <h1>Толгой 3</h1>
                 <input
                   type="text"
                   name="header3" // Add name attribute
-                  placeholder="header3"
+                  placeholder="Толгой 3"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>button1_label</h1>
+                <h1>Товч 1 техт</h1>
                 <input
                   type="text"
                   name="button1_label" // Add name attribute
-                  placeholder="button1_label"
+                  placeholder="Товч 1 техт"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>button2_label</h1>
+                <h1>Товч 2 техт</h1>
                 <input
                   type="text"
                   name="button2_label" // Add name attribute
-                  placeholder="button2_label"
+                  placeholder="Товч 2 техт"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>button3_label</h1>
+                <h1>Товч 3 техт</h1>
                 <input
                   type="text"
                   name="button3_label" // Add name attribute
-                  placeholder="button3_label"
+                  placeholder="Товч 3 техт"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>button_label</h1>
+                <h1>Үндсэн товч</h1>
                 <input
                   type="text"
                   name="button_label" // Add name attribute
-                  placeholder="button_label"
+                  placeholder="Үндсэн товч"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
@@ -233,7 +255,7 @@ const Home_Section_12 = () => {
                 type="submit" // Change to submit type
                 className="bg-black text-white py-4 rounded-xl col-span-2"
               >
-                Create
+                Үүсгэх
               </button>
             </div>
           </form>

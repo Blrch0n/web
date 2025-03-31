@@ -70,8 +70,7 @@ const Home_Section_4 = () => {
                 setIsClicked(!isClicked);
               }}
             >
-              {" "}
-              Create Section4{" "}
+              Хэсэг 4 үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -79,8 +78,7 @@ const Home_Section_4 = () => {
                 deleteAllSection4();
               }}
             >
-              {" "}
-              Delete AllData
+              Датаг устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-black">
@@ -93,7 +91,19 @@ const Home_Section_4 = () => {
                     className="w-full h-full flex border flex-col border-black bg-[#36454f] rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4">
-                      <h1>{item.name}</h1>
+                      <h1>
+                        {item.name === "about"
+                          ? "Тухай"
+                          : item.name === "span"
+                          ? "span"
+                          : item.name === "header"
+                          ? "Толгой хэсэг"
+                          : item.name === "button_label"
+                          ? "Товчны шошго"
+                          : item.name === "background_image"
+                          ? "Дэвсгэр зураг"
+                          : item.name}
+                      </h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="flex w-full h-full items-center justify-center p-5">
@@ -128,7 +138,7 @@ const Home_Section_4 = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 4
+                Хэсэг 4 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -138,11 +148,11 @@ const Home_Section_4 = () => {
             </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>about</h1>
+                <h1>Тухай</h1>
                 <input
                   type="text"
                   name="about" // Add name attribute
-                  placeholder="about"
+                  placeholder="Тухай"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
@@ -158,31 +168,31 @@ const Home_Section_4 = () => {
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Header</h1>
+                <h1>Толгой хэсэг</h1>
                 <input
                   type="text"
                   name="header" // Add name attribute
-                  placeholder="header"
+                  placeholder="Толгой хэсэг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>button label</h1>
+                <h1>Товчны гарчиг</h1>
                 <input
                   type="text"
                   name="button_label" // Add name attribute
-                  placeholder="button_label"
+                  placeholder="Товчны гарчиг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>background_image</h1>
+                <h1>Дэвсгэр зураг</h1>
                 <input
                   type="text"
                   name="background_image" // Add name attribute
-                  placeholder="background_image"
+                  placeholder="Дэвсгэр зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
@@ -191,7 +201,7 @@ const Home_Section_4 = () => {
                 type="submit" // Change to submit type
                 className="bg-black text-white py-4 rounded-xl"
               >
-                Create
+                Шинээр үүсгэх
               </button>
             </div>
           </form>

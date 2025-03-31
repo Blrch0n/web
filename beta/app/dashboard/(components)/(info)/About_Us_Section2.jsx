@@ -68,7 +68,7 @@ const About_Us_Section2 = () => {
                 setIsClicked(!isClicked);
               }}
             >
-              Create Section2
+              Хэсэг 2 үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -76,7 +76,7 @@ const About_Us_Section2 = () => {
                 deleteAllSection1();
               }}
             >
-              Delete AllData
+              Датаг устгах
             </button>
           </div>
 
@@ -92,7 +92,23 @@ const About_Us_Section2 = () => {
                       key={i}
                       className="border border-black p-5 w-full bg-[#36454f] rounded-lg h-full flex flex-col items-center justify-start"
                     >
-                      <h1 className="text-sm">{key}</h1>
+                      <h1 className="text-sm">
+                        {key === "background"
+                          ? "Дэвсгэр зураг"
+                          : key === "image"
+                          ? "Зураг"
+                          : key === "about"
+                          ? "Тухай"
+                          : key === "header"
+                          ? "Тодруулсан хэсэг"
+                          : key === "paragraph"
+                          ? "Дэлгэрэнгүй"
+                          : key === "button_label"
+                          ? "Товчийн нэр"
+                          : key === "progresses"
+                          ? "Явц"
+                          : key}
+                      </h1>
                       <hr className="w-full border-t border-white my-2" />
                       {typeof value === "string" &&
                       (value.includes("image") ||
@@ -116,7 +132,7 @@ const About_Us_Section2 = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 2
+                Хэсэг 2 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -126,31 +142,31 @@ const About_Us_Section2 = () => {
             </div>
             <div className="w-full h-fit grid grid-cols-3 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Background Image</h1>
+                <h1>Дэвсгэр зураг</h1>
                 <input
                   type="text"
                   name="background"
-                  placeholder="Background Image"
+                  placeholder="Дэвсгэр зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Image</h1>
+                <h1>Зураг</h1>
                 <input
                   type="text"
                   name="image"
-                  placeholder="Image"
+                  placeholder="Зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>about</h1>
+                <h1>Тухай</h1>
                 <input
                   type="text"
                   name="about"
-                  placeholder="about"
+                  placeholder="Тухай"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
@@ -166,31 +182,31 @@ const About_Us_Section2 = () => {
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>header</h1>
+                <h1>Гарчиг</h1>
                 <input
                   type="text"
                   name="header"
-                  placeholder="header"
+                  placeholder="Гарчиг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>paragraph</h1>
+                <h1>Дэлгэрэнгүй</h1>
                 <input
                   type="text"
                   name="paragraph"
-                  placeholder="paragraph"
+                  placeholder="Дэлгэрэнгүй"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>button_label</h1>
+                <h1>Товчний гарчиг</h1>
                 <input
                   type="text"
                   name="button_label"
-                  placeholder="button_label"
+                  placeholder="Товчний гарчиг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
@@ -200,7 +216,7 @@ const About_Us_Section2 = () => {
                 type="submit"
                 className="bg-black text-white py-4 rounded-xl col-span-2"
               >
-                Create
+                Шинээр үүсгэх
               </button>
             </div>
           </form>

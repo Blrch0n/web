@@ -63,8 +63,7 @@ const Home_Section_7 = () => {
                 setIsClicked(!isClicked);
               }}
             >
-              {" "}
-              Create Section7{" "}
+              Хэсэг 7 үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -72,8 +71,7 @@ const Home_Section_7 = () => {
                 deleteAllSection7();
               }}
             >
-              {" "}
-              Delete AllData
+              Датаг устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-black text-white">
@@ -86,7 +84,31 @@ const Home_Section_7 = () => {
                     className="w-full h-full flex border flex-col border-black bg-[#36454f] rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
-                      <h1>{item.name}</h1>
+                      <h1>
+                        {item.name === "image"
+                          ? "Зураг"
+                          : item.name === "background_image"
+                          ? "Дэвсгэр зураг"
+                          : item.name === "header"
+                          ? "Толгой хэсэг"
+                          : item.name === "paragraph"
+                          ? "Догол мөр"
+                          : item.name === "span"
+                          ? "Онцлох үг"
+                          : item.name === "button_label"
+                          ? "Товчны шошго"
+                          : item.name === "about"
+                          ? "Тухай"
+                          : item.name === "list1"
+                          ? "Эгнээ 1"
+                          : item.name === "list2"
+                          ? "Эгнээ 2"
+                          : item.name === "list3"
+                          ? "Эгнээ 3"
+                          : item.name === "list4"
+                          ? "Эгнээ 4"
+                          : item.name}
+                      </h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="flex w-full h-full items-center justify-center p-5">
@@ -119,7 +141,7 @@ const Home_Section_7 = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 5
+                Хэсэг 5 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -129,110 +151,110 @@ const Home_Section_7 = () => {
             </div>
             <div className="w-full h-fit grid grid-cols-3 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>image</h1>
+                <h1>Зураг</h1>
                 <input
                   type="text"
-                  name="image" // Add name attribute
-                  placeholder="image"
+                  name="image"
+                  placeholder="Зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>background_image</h1>
+                <h1>Дэвсгэр зураг</h1>
                 <input
                   type="text"
-                  name="background_image" // Add name attribute
-                  placeholder="background_image"
+                  name="background_image"
+                  placeholder="Дэвсгэр зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Header</h1>
+                <h1>Гарчиг</h1>
                 <input
                   type="text"
-                  name="header" // Add name attribute
-                  placeholder="header"
+                  name="header"
+                  placeholder="Гарчиг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>span</h1>
+                <h1>Онцлох үг</h1>
                 <input
                   type="text"
-                  name="span" // Add name attribute
-                  placeholder="span"
+                  name="span"
+                  placeholder="Онцлох үг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>paragraph</h1>
+                <h1>Параграф</h1>
                 <input
                   type="text"
-                  name="paragraph" // Add name attribute
-                  placeholder="paragraph"
+                  name="paragraph"
+                  placeholder="Параграф"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>list1</h1>
+                <h1>Жагсаалт 1</h1>
                 <input
                   type="text"
-                  name="list1" // Add name attribute
-                  placeholder="list1"
+                  name="list1"
+                  placeholder="Жагсаалт 1"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>list2</h1>
+                <h1>Жагсаалт 2</h1>
                 <input
                   type="text"
-                  name="list2" // Add name attribute
-                  placeholder="list2"
+                  name="list2"
+                  placeholder="Жагсаалт 2"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>list3</h1>
+                <h1>Жагсаалт 3</h1>
                 <input
                   type="text"
-                  name="list3" // Add name attribute
-                  placeholder="list3"
+                  name="list3"
+                  placeholder="Жагсаалт 3"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>list4</h1>
+                <h1>Жагсаалт 4</h1>
                 <input
                   type="text"
-                  name="list4" // Add name attribute
-                  placeholder="list4"
+                  name="list4"
+                  placeholder="Жагсаалт 4"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>button_label</h1>
+                <h1>Товчлуурын текст</h1>
                 <input
                   type="text"
-                  name="button_label" // Add name attribute
-                  placeholder="button_label"
+                  name="button_label"
+                  placeholder="Товчлуурын текст"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <button
-                type="submit" // Change to submit type
+                type="submit"
                 className="bg-black text-white py-4 rounded-xl col-span-2"
               >
-                Create
+                Үүсгэх
               </button>
             </div>
           </form>

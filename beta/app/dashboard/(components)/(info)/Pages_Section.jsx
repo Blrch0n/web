@@ -80,7 +80,7 @@ const Portfolio_Section = () => {
               }}
             >
               {" "}
-              Create Portfolio
+              Портфолио үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -89,7 +89,7 @@ const Portfolio_Section = () => {
               }}
             >
               {" "}
-              Delete AllData
+              Бүх датаг устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl w-full h-[600px] overflow-hidden bg-black text-white">
@@ -105,8 +105,8 @@ const Portfolio_Section = () => {
                     className="w-full h-auto object-cover "
                   />
                   <div className="p-4">
-                    <h2>Span: {data?.span}</h2>
-                    <p>Paragraph: {data?.paragraph}</p>
+                    <h2>Гарчиг: {data?.span}</h2>
+                    <p>Дэлгэрэнгүй: {data?.paragraph}</p>
                   </div>
                 </div>
               ))}
@@ -122,7 +122,7 @@ const Portfolio_Section = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Portfolio
+                Портфолио үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -132,16 +132,16 @@ const Portfolio_Section = () => {
             </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Team Members</h1>
+                <h1>Багийн гишүүд</h1>
                 {formData.images.map((member, index) => (
                   <div key={index} className="border p-4 mb-4 rounded-lg">
-                    <h2 className="mb-2 font-semibold">Member #{index + 1}</h2>
+                    <h2 className="mb-2 font-semibold">Гишүүн #{index + 1}</h2>
                     <input
                       type="text"
                       name="image"
                       value={member.image}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="image"
+                      placeholder="Зураг"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -150,7 +150,7 @@ const Portfolio_Section = () => {
                       name="span"
                       value={member.span}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="span"
+                      placeholder="Гарчиг"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -159,7 +159,7 @@ const Portfolio_Section = () => {
                       name="paragraph"
                       value={member.paragraph}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Paragraph"
+                      placeholder="Дэлгэрэнгүй"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -170,7 +170,7 @@ const Portfolio_Section = () => {
                   onClick={addTeamMember}
                   className="bg-gray-200 p-2 rounded-[6px] hover:bg-gray-300"
                 >
-                  Add Another Image
+                  Шинэ зураг нэмэх
                 </button>
               </div>
 
@@ -178,7 +178,7 @@ const Portfolio_Section = () => {
                 type="submit"
                 className="bg-black text-white py-4 rounded-xl"
               >
-                Create
+                Шинээр үүсгэх
               </button>
             </div>
           </form>

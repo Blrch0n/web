@@ -114,8 +114,7 @@ const Home_Section_13 = () => {
                 setIsClicked(!isClicked);
               }}
             >
-              {" "}
-              Create Section13{" "}
+              Хэсэг 13 үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -123,8 +122,7 @@ const Home_Section_13 = () => {
                 deleteAllSection13();
               }}
             >
-              {" "}
-              Delete AllData
+              Бүх датаг устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl bg-black text-white w-full h-full border border-black">
@@ -138,7 +136,31 @@ const Home_Section_13 = () => {
                     className="w-full bg-[#36454f] h-fit min-h-[300px] flex border flex-col border-black rounded-xl items-center justify-start overflow-hidden"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
-                      <h1>{item.name}</h1>
+                      <h1>
+                        {item.name === "background_image"
+                          ? "Дэвсгэр зураг"
+                          : item.name === "paragraph"
+                          ? "Дэлгэрэнгүй техт"
+                          : item.name === "placeholder"
+                          ? "Түр техт"
+                          : item.name === "paragraph1"
+                          ? "Дэлгэрэнгүй техт 1"
+                          : item.name === "paragraph2"
+                          ? "Дэлгэрэнгүй техт 2"
+                          : item.name === "header2"
+                          ? "Толгой гарчиг 2"
+                          : item.name === "button_label"
+                          ? "Товч техт"
+                          : item.name === "header1"
+                          ? "Толгой гарчиг 1"
+                          : item.name === "header3"
+                          ? "Толгой гарчиг 3"
+                          : item.name === "instagramImages"
+                          ? "Инстаграм зураг"
+                          : item.name === "Section13_data"
+                          ? "Хэсэг 13-ын дата"
+                          : item.name}
+                      </h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="w-full h-fit flex justify-center items-center">

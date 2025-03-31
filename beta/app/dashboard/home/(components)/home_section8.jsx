@@ -90,8 +90,7 @@ const Home_Section_8 = () => {
                 setIsClicked(!isClicked);
               }}
             >
-              {" "}
-              Create Section8{" "}
+              Хэсэг 8 шинээр үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -99,8 +98,7 @@ const Home_Section_8 = () => {
                 deleteAllSection8();
               }}
             >
-              {" "}
-              Delete AllData
+              Хэсэг 8 устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full bg-black text-white">
@@ -114,7 +112,11 @@ const Home_Section_8 = () => {
                     className="w-full min-h-full bg-[#36454f] h-fit flex border flex-col border-black rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
-                      <h1>{item.name}</h1>
+                      <h1>
+                        {item.name === "background_image"
+                          ? "Дэвсгэр зураг"
+                          : "Багийн гишүүд"}
+                      </h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     {item.name === "teamMembers" && data ? (
@@ -170,7 +172,7 @@ const Home_Section_8 = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 8
+                Хэсэг 8 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -180,11 +182,12 @@ const Home_Section_8 = () => {
             </div>
             <div className="w-full h-fit grid grid-cols-2 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Background Image</h1>
+                <h1>Дэвсгэр зураг</h1>
                 <input
                   type="text"
                   name="background_image"
                   value={formData.background_image}
+                  placeholder="Дэвсгэр зураг"
                   onChange={(e) => handleInputChange(e)}
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
@@ -192,16 +195,16 @@ const Home_Section_8 = () => {
               </div>
 
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Team Members</h1>
+                <h1>Багийн гишүүд</h1>
                 {formData.teamMembers.map((member, index) => (
                   <div key={index} className="border p-4 mb-4 rounded-lg">
-                    <h2 className="mb-2 font-semibold">Member #{index + 1}</h2>
+                    <h2 className="mb-2 font-semibold">Гишүүд #{index + 1}</h2>
                     <input
                       type="text"
                       name="name"
                       value={member.name}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Name"
+                      placeholder="Нэр"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -210,7 +213,7 @@ const Home_Section_8 = () => {
                       name="role"
                       value={member.role}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Role"
+                      placeholder="Үүрэг"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -219,7 +222,7 @@ const Home_Section_8 = () => {
                       name="image"
                       value={member.image}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Image URL"
+                      placeholder="Зургийн зам"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -228,7 +231,7 @@ const Home_Section_8 = () => {
                       name="paragraph"
                       value={member.paragraph}
                       onChange={(e) => handleInputChange(e, index)}
-                      placeholder="Paragraph"
+                      placeholder="Дэлгэрэнгүй"
                       className="w-full p-2 mb-2 rounded-[6px] border"
                       required
                     />
@@ -239,15 +242,15 @@ const Home_Section_8 = () => {
                   onClick={addTeamMember}
                   className="bg-gray-200 p-2 rounded-[6px] hover:bg-gray-300"
                 >
-                  Add Another Member
+                  Шинэ гишүүн үүсгэх
                 </button>
               </div>
 
               <button
                 type="submit"
-                className="bg-black text-white py-4 rounded-xl"
+                className="bg-black text-white py-4 rounded-xl col-span-2"
               >
-                Create
+                Үүсгэх
               </button>
             </div>
           </form>

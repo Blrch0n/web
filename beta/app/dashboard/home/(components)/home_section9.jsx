@@ -64,8 +64,7 @@ const Home_Section_9 = () => {
                 setIsClicked(!isClicked);
               }}
             >
-              {" "}
-              Create Section9{" "}
+              Хэсэг 9 үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -73,8 +72,7 @@ const Home_Section_9 = () => {
                 deleteAllSection9();
               }}
             >
-              {" "}
-              Delete AllData
+              Датаг устгах
             </button>
           </div>
           <div className="flex flex-col rounded-2xl overflow-hidden w-full h-full text-white bg-black">
@@ -87,7 +85,25 @@ const Home_Section_9 = () => {
                     className="w-full h-full flex border flex-col bg-[#36454f] border-black rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4 font-bold">
-                      <h1>{item.name}</h1>
+                      <h1>
+                        {item.name === "number1"
+                          ? "Тоо 1"
+                          : item.name === "label1"
+                          ? "Гарчиг 1"
+                          : item.name === "number2"
+                          ? "Тоо 2"
+                          : item.name === "label2"
+                          ? "Гарчиг 2"
+                          : item.name === "number3"
+                          ? "Тоо 3"
+                          : item.name === "label3"
+                          ? "Гарчиг 3"
+                          : item.name === "number4"
+                          ? "Тоо 4"
+                          : item.name === "label4"
+                          ? "Гарчиг 4"
+                          : item.name}
+                      </h1>
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="flex w-full h-full items-center justify-center p-5">
@@ -111,7 +127,7 @@ const Home_Section_9 = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 9
+                Хэсэг 9 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -121,81 +137,81 @@ const Home_Section_9 = () => {
             </div>
             <div className="w-full h-fit grid grid-cols-3 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>number1</h1>
+                <h1>Тоо 1</h1>
                 <input
                   type="text"
                   name="number1" // Add name attribute
-                  placeholder="number1"
+                  placeholder="Тоо 1"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>label1</h1>
+                <h1>Гарчиг 1</h1>
                 <input
                   type="text"
                   name="label1" // Add name attribute
-                  placeholder="label1"
+                  placeholder="Гарчиг 1"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>number2</h1>
+                <h1>Тоо 2</h1>
                 <input
                   type="text"
                   name="number2" // Add name attribute
-                  placeholder="number2"
+                  placeholder="Тоо 2"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>label2</h1>
+                <h1>Гарчиг 2</h1>
                 <input
                   type="text"
                   name="label2" // Add name attribute
-                  placeholder="label2"
+                  placeholder="Гарчиг 2"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>number3</h1>
+                <h1>Тоо 3</h1>
                 <input
                   type="text"
                   name="number3" // Add name attribute
-                  placeholder="number3"
+                  placeholder="Тоо 3"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>label3</h1>
+                <h1>Гарчиг 3</h1>
                 <input
                   type="text"
                   name="label3" // Add name attribute
-                  placeholder="label3"
+                  placeholder="Гарчиг 3"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>number4</h1>
+                <h1>Тоо 4</h1>
                 <input
                   type="text"
                   name="number4" // Add name attribute
-                  placeholder="number4"
+                  placeholder="Тоо 4"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>label4</h1>
+                <h1>Гарчиг 4</h1>
                 <input
                   type="text"
                   name="label4" // Add name attribute
-                  placeholder="label4"
+                  placeholder="Гарчиг 4"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
@@ -204,7 +220,7 @@ const Home_Section_9 = () => {
                 type="submit" // Change to submit type
                 className="bg-black text-white py-4 rounded-xl"
               >
-                Create
+                Үүсгэх
               </button>
             </div>
           </form>

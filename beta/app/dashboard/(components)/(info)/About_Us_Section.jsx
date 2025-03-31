@@ -67,7 +67,7 @@ const About_Us_Section = () => {
                 setIsClicked(!isClicked);
               }}
             >
-              Create Section1
+              Хэсэг 1 үүсгэх
             </button>
             <button
               className="bg-[#ff9a00] p-3 rounded-[6px] text-black border border-black"
@@ -75,11 +75,11 @@ const About_Us_Section = () => {
                 deleteAllSection1();
               }}
             >
-              Delete AllData
+              Датаг устгах
             </button>
           </div>
           <div className="flex flex-col bg-black text-white rounded-2xl overflow-hidden w-full h-full border border-black">
-            <h1 className="text-center py-5">Background</h1>
+            <h1 className="text-center py-5">Дэсвгэр үүсгэх</h1>
             <hr />
             <div className="w-full flex h-full justify-center gap-5 items-center  p-5">
               <img
@@ -99,7 +99,7 @@ const About_Us_Section = () => {
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
               <h1 className="text-3xl font-montserrat font-bold text-black">
-                Create Section 1
+                Хэсэг 1 үүсгэх
               </h1>
               <IoExitOutline
                 size={30}
@@ -109,11 +109,11 @@ const About_Us_Section = () => {
             </div>
             <div className="w-full h-fit flex flex-col gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Background Image</h1>
+                <h1>Дэвсгэр зураг</h1>
                 <input
                   type="text"
                   name="background"
-                  placeholder="Background Image"
+                  placeholder="Дэвсгэр зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
@@ -123,7 +123,7 @@ const About_Us_Section = () => {
                 type="submit"
                 className="bg-black text-white py-4 rounded-xl"
               >
-                Create
+                Шинээр үүсгэх
               </button>
             </div>
           </form>

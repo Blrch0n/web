@@ -89,8 +89,8 @@ const Home_Section_2 = () => {
                     className="w-full h-full flex border flex-col border-black text-white bg-[#36454f] rounded-xl items-center justify-start"
                   >
                     <div className="w-full h-fit flex justify-center py-4">
-                      <h1>{item.name}</h1>
-                      {/* {item.name === "image"
+                      {/* <h1>{item.name}</h1> */}
+                      {item.name === "image"
                         ? "Зураг"
                         : item.name === "background"
                         ? "Дэвсгэр"
@@ -100,7 +100,25 @@ const Home_Section_2 = () => {
                         ? "Догол мөр"
                         : item.name === "button_label"
                         ? "Товчны шошго"
-                        : ""} */}
+                        : item.name === "about"
+                        ? "Тухай"
+                        : item.name === "title1"
+                        ? "Гарчиг 1"
+                        : item.name === "title2"
+                        ? "Гарчиг 2"
+                        : item.name === "title3"
+                        ? "Гарчиг 3"
+                        : item.name === "title4"
+                        ? "Гарчиг 4"
+                        : item.name === "color1"
+                        ? "Өнгө 1"
+                        : item.name === "color2"
+                        ? "Өнгө 2"
+                        : item.name === "color3"
+                        ? "Өнгө 3"
+                        : item.name === "color4"
+                        ? "Өнгө 4"
+                        : item.name}
                     </div>
                     <hr className="w-full h-[1px] bg-black" />
                     <div className="flex w-full h-full items-center justify-center p-5">
@@ -131,7 +149,7 @@ const Home_Section_2 = () => {
             className="bg-white w-[75%] h-fit rounded-2xl p-6 gap-2 "
           >
             <div className="w-full h-fit flex flex-row items-center justify-between">
-              <h1>Create Section 2 </h1>
+              <h1>Хэсэг 2 үүсгэх</h1>
               <IoExitOutline
                 size={30}
                 onClick={(e) => setIsClicked(false)}
@@ -140,160 +158,160 @@ const Home_Section_2 = () => {
             </div>
             <div className="w-full h-fit grid grid-cols-3 gap-5 text-black">
               <div className="w-full h-fit flex flex-col gap-2">
-                <h1>Image</h1>
+                <h1>Зураг</h1>
                 <input
                   type="text"
-                  name="image" // Add name attribute
-                  placeholder="Image"
+                  name="image"
+                  placeholder="Зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>background</h1>
+                <h1>Дэвсгэр зураг</h1>
                 <input
                   type="text"
-                  name="background" // Add name attribute
-                  placeholder="background"
+                  name="background"
+                  placeholder="Дэвсгэр зураг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>span</h1>
+                <h1>Хэсэг</h1>
                 <input
                   type="text"
-                  name="span" // Add name attribute
-                  placeholder="span"
+                  name="span"
+                  placeholder="Хэсэг"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>header</h1>
+                <h1>Толгой</h1>
                 <input
                   type="text"
-                  name="header" // Add name attribute
-                  placeholder="header"
+                  name="header"
+                  placeholder="Толгой"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>about</h1>
+                <h1>Тухай</h1>
                 <input
                   type="text"
-                  name="about" // Add name attribute
-                  placeholder="about"
+                  name="about"
+                  placeholder="Тухай"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>paragraph</h1>
+                <h1>Дэлгэрэнгүй</h1>
                 <input
                   type="text"
-                  name="paragraph" // Add name attribute
-                  placeholder="paragraph"
+                  name="paragraph"
+                  placeholder="Дэлгэрэнгүй"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>button_label</h1>
+                <h1>Товчний шошго</h1>
                 <input
                   type="text"
-                  name="button_label" // Add name attribute
-                  placeholder="button_label"
+                  name="button_label"
+                  placeholder="Товчний шошго"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>Title 1</h1>
+                <h1>Гарчиг 1</h1>
                 <input
                   type="text"
-                  name="title1" // Add name attribute
-                  placeholder="title1"
+                  name="title1"
+                  placeholder="Гарчиг 1"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>Color 1</h1>
+                <h1>Өнгө 1</h1>
                 <input
                   type="text"
-                  name="color1" // Add name attribute
-                  placeholder="color1"
+                  name="color1"
+                  placeholder="Өнгө 1"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>Title 2</h1>
+                <h1>Гарчиг 2</h1>
                 <input
                   type="text"
-                  name="title2" // Add name attribute
-                  placeholder="title2"
+                  name="title2"
+                  placeholder="Гарчиг 2"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>color2</h1>
+                <h1>Өнгө 2</h1>
                 <input
                   type="text"
-                  name="color2" // Add name attribute
-                  placeholder="color2"
+                  name="color2"
+                  placeholder="Өнгө 2"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>title3</h1>
+                <h1>Гарчиг 3</h1>
                 <input
                   type="text"
-                  name="title3" // Add name attribute
-                  placeholder="title3"
+                  name="title3"
+                  placeholder="Гарчиг 3"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>color3</h1>
+                <h1>Өнгө 3</h1>
                 <input
                   type="text"
-                  name="color3" // Add name attribute
-                  placeholder="color3"
+                  name="color3"
+                  placeholder="Өнгө 3"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>title4</h1>
+                <h1>Гарчиг 4</h1>
                 <input
                   type="text"
-                  name="title4" // Add name attribute
-                  placeholder="title4"
+                  name="title4"
+                  placeholder="Гарчиг 4"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <div>
-                <h1>color4</h1>
+                <h1>Өнгө 4</h1>
                 <input
                   type="text"
-                  name="color4" // Add name attribute
-                  placeholder="color4"
+                  name="color4"
+                  placeholder="Өнгө 4"
                   className="w-full p-2 rounded-[6px] border border-black"
                   required
                 />
               </div>
               <button
-                type="submit" // Change to submit type
+                type="submit"
                 className="bg-black text-white py-4 rounded-xl col-span-3"
               >
-                Create
+                Үүсгэх
               </button>
             </div>
           </form>
